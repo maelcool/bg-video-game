@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bi8ly86cwk4mf"]
+
+[ext_resource type="Texture2D" uid="uid://dckauvx2c12a3" path="res://assets/Tileset/New Piskel(2).png" id="1_ap7l6"]
+[ext_resource type="FontFile" uid="uid://bdbgwtu5lr8f6" path="res://assets/Themes/IMMORTAL.ttf" id="2_k6o4h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2735"]
+texture = ExtResource("1_ap7l6")
+texture_margin_left = 12.4266
+texture_margin_top = 12.1888
+texture_margin_right = 12.5356
+texture_margin_bottom = 12.0114
+region_rect = Rect2(1, 0, 30, 32)
+
+[resource]
+default_font = ExtResource("2_k6o4h")
+Panel/styles/panel = SubResource("StyleBoxTexture_d2735")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3udfq7dtui55"
-path="res://.godot/imported/Dirt-Tile-Set.png-0765628ae4d139ebe1b1fdb6fcc324b1.ctex"
+uid="uid://cla3ryacr13ah"
+path="res://.godot/imported/Sign-1.png.png-3f4f589de27bc2d49cde5c63311ba5ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tileset/Dirt-Tile-Set.png"
-dest_files=["res://.godot/imported/Dirt-Tile-Set.png-0765628ae4d139ebe1b1fdb6fcc324b1.ctex"]
+source_file="res://assets/images/Sign-1.png.png"
+dest_files=["res://.godot/imported/Sign-1.png.png-3f4f589de27bc2d49cde5c63311ba5ee.ctex"]
 
 [params]
 

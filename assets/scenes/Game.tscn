@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf6t8epr32o0s"]
+
+[ext_resource type="Script" path="res://assets/scenes/game.gd" id="1_i8ob4"]
+[ext_resource type="PackedScene" uid="uid://cjn7325o8oevw" path="res://assets/scenes/Player.tscn" id="1_mhc7m"]
+[ext_resource type="Script" path="res://scipts/camera_2d.gd" id="3_iowlj"]
+[ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="4_ab7m7"]
+[ext_resource type="Script" path="res://assets/scenes/gui.gd" id="6_7wetd"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_i8ob4")
+
+[node name="DayNightOverlay" type="CanvasModulate" parent="."]
+z_index = 21
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Player" parent="World" instance=ExtResource("1_mhc7m")]
+z_index = 3
+position = Vector2(79, 140)
+
+[node name="Level" type="Node2D" parent="World"]
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(65, 140)
+limit_left = -8
+limit_bottom = 200
+position_smoothing_enabled = true
+script = ExtResource("3_iowlj")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_top = 21.0
+offset_right = 313.0
+offset_bottom = 199.0
+script = ExtResource("6_7wetd")
+max_darkness = 0.8
+overlay_color = Color(1.92523e-07, 0.00614033, 0.126309, 1)
+
+[node name="Display" type="CanvasLayer" parent="GUI"]
+
+[node name="DisplayCoins" type="RichTextLabel" parent="GUI/Display"]
+anchors_preset = -1
+anchor_top = 0.006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 1.92
+offset_right = -187.0
+offset_bottom = -151.012
+theme = ExtResource("4_ab7m7")
+bbcode_enabled = true
+text = "Coins
+"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="GUI/Display"]
+anchors_preset = -1
+anchor_top = 0.006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 22.92
+offset_right = -158.0
+offset_bottom = -132.0
+theme = ExtResource("4_ab7m7")
+bbcode_enabled = true
+text = "Time
+"
+fit_content = true
+
+[node name="AskNight" type="RichTextLabel" parent="GUI/Display"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 74.92
+offset_right = -103.0
+offset_bottom = -62.0
+theme = ExtResource("4_ab7m7")
+bbcode_enabled = true
+text = "It is getting Dark, you should rest"
+fit_content = true
+
+[node name="Tint" type="CanvasLayer" parent="GUI"]
+layer = 2

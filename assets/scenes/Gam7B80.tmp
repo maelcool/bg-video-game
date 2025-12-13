@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf6t8epr32o0s"]
+
+[ext_resource type="Script" path="res://assets/scenes/game.gd" id="1_i8ob4"]
+[ext_resource type="PackedScene" uid="uid://cjn7325o8oevw" path="res://assets/scenes/Player.tscn" id="1_mhc7m"]
+[ext_resource type="Script" path="res://scipts/camera_2d.gd" id="3_iowlj"]
+[ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="4_ab7m7"]
+[ext_resource type="Script" path="res://assets/scenes/gui.gd" id="6_7wetd"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_i8ob4")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Player" parent="World" instance=ExtResource("1_mhc7m")]
+position = Vector2(79, 161)
+
+[node name="Level" type="Node2D" parent="World"]
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(65, 140)
+limit_left = -8
+limit_bottom = 200
+position_smoothing_enabled = true
+script = ExtResource("3_iowlj")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_top = 21.0
+offset_right = 313.0
+offset_bottom = 199.0
+script = ExtResource("6_7wetd")
+overlay_color = Color(0, 0.0084578, 0.152229, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GUI"]
+
+[node name="DisplayCoins" type="RichTextLabel" parent="GUI/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 1.92
+offset_right = -187.0
+offset_bottom = -151.012
+theme = ExtResource("4_ab7m7")
+bbcode_enabled = true
+text = "[img=16x16]res://assets/images/Coin.png[/img]Coins"
+fit_content = true
+
+[node name="Overlay" type="ColorRect" parent="GUI/CanvasLayer"]
+visible = false
+z_index = 20
+offset_right = 319.0
+offset_bottom = 182.0
