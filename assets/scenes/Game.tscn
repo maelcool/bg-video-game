@@ -35,8 +35,6 @@ offset_top = 21.0
 offset_right = 313.0
 offset_bottom = 199.0
 script = ExtResource("6_7wetd")
-max_darkness = 0.8
-overlay_color = Color(1.92523e-07, 0.00614033, 0.126309, 1)
 
 [node name="Display" type="CanvasLayer" parent="GUI"]
 

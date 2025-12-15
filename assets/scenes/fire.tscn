@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkjf0sumjt5gx"]
+[gd_scene load_steps=13 format=3 uid="uid://dkjf0sumjt5gx"]
 
 [ext_resource type="Texture2D" uid="uid://dd1ox7qyybb3" path="res://assets/animation/Tileset/FirePit.png" id="1_54f8x"]
+[ext_resource type="Script" path="res://assets/scenes/fire.gd" id="1_fw3ob"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32ebo"]
 atlas = ExtResource("1_54f8x")
@@ -66,8 +67,29 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mm8oo"]
+radius = 35.9026
+
 [node name="fire" type="Node2D"]
+script = ExtResource("1_fw3ob")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7yt5l")
 autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mm8oo")
+
+[node name="Intraction_Label" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.0
+offset_top = -34.0
+offset_right = 47.0
+offset_bottom = -11.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[img=16x16]res://assets/images/PressEWhite.png[/img] "

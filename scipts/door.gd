@@ -1,19 +1,29 @@
 extends Node2D
 
+@onready var door1 = $Door1
+@onready var door2 = $Door2
+@onready var door3 = $Door3
+
 var ui_label
-signal level2
+signal next_level
 
 func _ready():
 	ui_label = $Intraction_Label
+	if Global.currentSceneNumber == 0:
+		door1.visible = true
+	elif  Global.currentSceneNumber == 1:
+		door2.visible = true
+	elif  Global.currentSceneNumber == 3:
+		door2.visible = true
 
 func _process(delta):
 	if Input.is_action_just_pressed("Interact") and ui_label.visible == true:
-		emit_signal("level2")
+		emit_signal("next_level")
 
 
-func display_Interaction(visible: bool):
+func display_Interaction(isVisible: bool):
 	if ui_label != null:
-		ui_label.visible = visible
+		ui_label.visible = isVisible
 
 func _on_area_2d_body_entered(body):
 	if body is CharacterBody2D:

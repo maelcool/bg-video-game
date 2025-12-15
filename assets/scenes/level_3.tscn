@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://dji1rmr7vkdwx"]
+
+[ext_resource type="PackedScene" uid="uid://dahw36wi5sb6i" path="res://assets/scenes/lava_stone.tscn" id="1_jcq7b"]
+[ext_resource type="PackedScene" uid="uid://2agysw61vf0f" path="res://assets/scenes/door.tscn" id="2_2xvej"]
+
+[node name="level_3" type="Node2D"]
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="lava_stone" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(16, 170)
+
+[node name="lava_stone2" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(48, 170)
+
+[node name="lava_stone3" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(80, 170)
+
+[node name="lava_stone4" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(112, 170)
+
+[node name="lava_stone5" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(144, 170)
+
+[node name="lava_stone6" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(176, 170)
+
+[node name="lava_stone7" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(208, 170)
+
+[node name="lava_stone8" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(240, 170)
+
+[node name="lava_stone9" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(272, 170)
+
+[node name="lava_stone10" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(304, 170)
+
+[node name="lava_stone11" parent="Floor" instance=ExtResource("1_jcq7b")]
+position = Vector2(304, 170)
+
+[node name="Door" parent="." instance=ExtResource("2_2xvej")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
