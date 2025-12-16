@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg2ltbnb3nodq"]
+
+[ext_resource type="Script" path="res://assets/scenes/dragon_lord.gd" id="1_1wbya"]
+[ext_resource type="Texture2D" uid="uid://b1xdoslae1vmd" path="res://assets/images/DragonLord.png" id="1_6vf8o"]
+[ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="2_kvkp4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flpyd"]
+size = Vector2(16.5, 31.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7xy0"]
+radius = 58.0345
+
+[node name="DragonLord" type="RigidBody2D"]
+script = ExtResource("1_1wbya")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6vf8o")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.75, -0.75)
+shape = SubResource("RectangleShape2D_flpyd")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -10.0
+offset_top = -24.0
+offset_right = 5.0
+offset_bottom = -17.0
+theme = ExtResource("2_kvkp4")
+theme_override_font_sizes/font_size = 5
+rounded = true
+show_percentage = false
+
+[node name="FightArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FightArea"]
+position = Vector2(-1, -11)
+shape = SubResource("CircleShape2D_m7xy0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BossLabel" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -70.0
+offset_right = 67.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_kvkp4")
+theme_override_colors/default_color = Color(0.67, 0.2144, 0.2144, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[wave amp=20][b]Fight the Dragon Lord![/b]
+"
+
+[connection signal="body_entered" from="FightArea" to="." method="_on_fight_area_body_entered"]

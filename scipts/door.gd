@@ -9,16 +9,17 @@ signal next_level
 
 func _ready():
 	ui_label = $Intraction_Label
-	if Global.currentSceneNumber == 0:
-		door1.visible = true
-	elif  Global.currentSceneNumber == 1:
-		door2.visible = true
-	elif  Global.currentSceneNumber == 3:
-		door2.visible = true
 
 func _process(delta):
 	if Input.is_action_just_pressed("Interact") and ui_label.visible == true:
 		emit_signal("next_level")
+	if Global.currentSceneNumber == 1:
+		door1.visible = true
+	elif  Global.currentSceneNumber == 2:
+		print("UHGVSAD")
+		door2.visible = true
+	elif  Global.currentSceneNumber == 3:
+		door2.visible = true
 
 
 func display_Interaction(isVisible: bool):

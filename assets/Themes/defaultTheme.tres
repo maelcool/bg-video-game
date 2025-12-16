@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bi8ly86cwk4mf"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bi8ly86cwk4mf"]
 
 [ext_resource type="Texture2D" uid="uid://dckauvx2c12a3" path="res://assets/Tileset/New Piskel(2).png" id="1_ap7l6"]
 [ext_resource type="FontFile" uid="uid://bdbgwtu5lr8f6" path="res://assets/Themes/IMMORTAL.ttf" id="2_k6o4h"]
@@ -11,6 +11,23 @@ texture_margin_right = 12.5356
 texture_margin_bottom = 12.0114
 region_rect = Rect2(1, 0, 30, 32)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hthj2"]
+bg_color = Color(0.145098, 0.658824, 0.145098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsnr3"]
+bg_color = Color(0.729412, 0, 0.0117647, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_o2dwr"]
+color = Color(0.179061, 0.692503, 0.592995, 1)
+
 [resource]
 default_font = ExtResource("2_k6o4h")
+default_font_size = 10
 Panel/styles/panel = SubResource("StyleBoxTexture_d2735")
+ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 0
+ProgressBar/styles/background = SubResource("StyleBoxFlat_hthj2")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_nsnr3")
+TabContainer/constants/side_margin = 0
+TabContainer/styles/tab_focus = SubResource("StyleBoxLine_o2dwr")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bc6yx5da4flbt"]
+
+[ext_resource type="Script" path="res://scipts/cards.gd" id="1_o15sn"]
+[ext_resource type="Texture2D" uid="uid://cus6gx5y6e6br" path="res://assets/cards/cardImages/Magic_Card.png" id="1_sdppg"]
+
+[resource]
+script = ExtResource("1_o15sn")
+id = "0"
+name = "Backside"
+cost = 0
+image = ExtResource("1_sdppg")

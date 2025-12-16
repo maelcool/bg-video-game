@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://do5bli5jmqi7k"]
+
+[ext_resource type="Script" path="res://scipts/cards.gd" id="1_b24t3"]
+[ext_resource type="Texture2D" uid="uid://dtlu2njrtmsf6" path="res://assets/cards/cardImages/witch/Small Knowledge.png" id="1_ec2sc"]
+
+[resource]
+script = ExtResource("1_b24t3")
+id = "5"
+name = "Small Knowledge"
+cost = 1
+image = ExtResource("1_ec2sc")

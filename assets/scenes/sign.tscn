@@ -18,7 +18,6 @@ texture = ExtResource("2_a5ugq")
 texture = ExtResource("3_hmbc0")
 
 [node name="QuestPanel" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -26,23 +25,22 @@ offset_bottom = 40.0
 
 [node name="Panel" type="Panel" parent="QuestPanel"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = -134.0
-offset_right = 159.0
-offset_bottom = 13.0
+offset_left = 17.0
+offset_top = -77.0
+offset_right = 158.0
+offset_bottom = 70.0
+scale = Vector2(1, 0.48)
 theme = ExtResource("4_e5glj")
 
-[node name="Label" type="Label" parent="QuestPanel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="QuestPanel"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = -126.0
-offset_right = 80.0
-offset_bottom = -103.0
+offset_left = 26.0
+offset_top = -73.0
+offset_right = 148.0
+offset_bottom = -12.0
 theme = ExtResource("4_e5glj")
 text = "Quest:
-Save the Prince
-from the evil
-Dragon-Lord!
+Save the Prince from the evil Dragon-Lord!
 Reward: 200G
 "
 

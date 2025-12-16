@@ -12,9 +12,10 @@ config_version=5
 
 config/name="BG-Video-Game"
 config/version="0.1"
-run/main_scene="res://assets/scenes/Game.tscn"
+run/main_scene="res://assets/scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://assets/images/Logo.png"
+config/icon="res://assets/images/Logo.ico"
+config/windows_native_icon="res://assets/images/Logo.ico"
 
 [autoload]
 
@@ -57,6 +58,11 @@ Interact={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+Attack={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(219, 18),"global_position":Vector2(228, 64),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -68,4 +74,5 @@ Interact={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.182839, 0.521056, 0.646444, 1)

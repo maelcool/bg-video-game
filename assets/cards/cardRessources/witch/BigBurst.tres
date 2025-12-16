@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://0upn6kupc5oj"]
+
+[ext_resource type="Texture2D" uid="uid://br5li0nv4v4m0" path="res://assets/cards/cardImages/witch/Big Burst.png" id="1_id7h8"]
+[ext_resource type="Script" path="res://scipts/cards.gd" id="1_omj8l"]
+
+[resource]
+script = ExtResource("1_omj8l")
+id = "4"
+name = "Big Burst"
+cost = 4
+image = ExtResource("1_id7h8")

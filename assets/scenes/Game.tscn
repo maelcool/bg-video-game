@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf6t8epr32o0s"]
+[gd_scene load_steps=8 format=3 uid="uid://bf6t8epr32o0s"]
 
 [ext_resource type="Script" path="res://assets/scenes/game.gd" id="1_i8ob4"]
 [ext_resource type="PackedScene" uid="uid://cjn7325o8oevw" path="res://assets/scenes/Player.tscn" id="1_mhc7m"]
 [ext_resource type="Script" path="res://scipts/camera_2d.gd" id="3_iowlj"]
 [ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="4_ab7m7"]
 [ext_resource type="Script" path="res://assets/scenes/gui.gd" id="6_7wetd"]
+[ext_resource type="PackedScene" uid="uid://bi3pl15yydfwi" path="res://assets/scenes/card.tscn" id="6_wy0gd"]
+[ext_resource type="Resource" uid="uid://bc6yx5da4flbt" path="res://assets/cards/cardRessources/backside.tres" id="7_r5mg8"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i8ob4")
@@ -30,10 +32,10 @@ script = ExtResource("3_iowlj")
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -8.0
-offset_top = 21.0
-offset_right = 313.0
-offset_bottom = 199.0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 319.0
+offset_bottom = 179.0
 script = ExtResource("6_7wetd")
 
 [node name="Display" type="CanvasLayer" parent="GUI"]
@@ -83,5 +85,22 @@ bbcode_enabled = true
 text = "It is getting Dark, you should rest"
 fit_content = true
 
-[node name="Tint" type="CanvasLayer" parent="GUI"]
-layer = 2
+[node name="Fight" type="CanvasLayer" parent="GUI"]
+layer = 22
+visible = false
+
+[node name="Backside" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
+position = Vector2(32, 145)
+card = ExtResource("7_r5mg8")
+
+[node name="Card1" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
+position = Vector2(89, 145)
+
+[node name="Card2" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
+position = Vector2(134, 145)
+
+[node name="Card3" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
+position = Vector2(179, 145)
+
+[node name="Card4" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
+position = Vector2(224, 145)
