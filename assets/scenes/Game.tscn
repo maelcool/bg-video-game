@@ -94,6 +94,7 @@ position = Vector2(32, 145)
 card = ExtResource("7_r5mg8")
 
 [node name="Card1" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
+z_index = 50
 position = Vector2(89, 145)
 
 [node name="Card2" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]

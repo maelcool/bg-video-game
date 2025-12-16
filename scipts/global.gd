@@ -11,6 +11,14 @@ var stopTime: bool = false
 var isPlayerinFight: bool = false
 var playerCharacter: String
 var playerCharacterArray = ["Witch","Knight"]
+var playerCards: Array = ["res://assets/cards/cardRessources/witch/smallHealing.tres","res://assets/cards/cardRessources/witch/smallBurst.tres",
+"res://assets/cards/cardRessources/witch/BigBurst.tres","res://assets/cards/cardRessources/witch/smallKnowledge.tres"]
+
+
+var card1
+var card2
+var card3
+var card4
 
 signal coins_changed(value)
 signal slept
@@ -39,7 +47,20 @@ func startFirstLevel():
 	get_tree().change_scene_to_file("res://assets/scenes/Game.tscn")
 
 func fightTriggered(enemy: Node2D):
-	print("HA")
 	stopTime = true
-	game.get_node("GUI/Fight").visible = true
+	var fightCanvas = game.get_node("GUI/Fight")
+	fightCanvas.visible = true
 	isPlayerinFight = true
+	_setCards(fightCanvas)
+
+
+func _setCards(fightCanvas):
+	var playerDeck = playerCards.duplicate()
+	playerDeck.shuffle()
+	var playerHand:Array = playerDeck.slice(0,min(3, playerDeck.size()))
+	card1 = fightCanvas.get_child(1)
+	card1.setCardFromPath(playerHand[0])
+	card2 = fightCanvas.get_child(2)
+	card2.setCardFromPath(playerHand[1])
+	card3 = fightCanvas.get_child(3)
+	card4 = fightCanvas.get_child(4)
