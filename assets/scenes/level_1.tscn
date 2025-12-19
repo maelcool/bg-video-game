@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://xf681pm1edvo" path="res://assets/Tileset/Wood-Tileset(2).png" id="2_k014y"]
 [ext_resource type="PackedScene" uid="uid://c86pp43s2e6kw" path="res://assets/scenes/table.tscn" id="2_kjg5t"]
 [ext_resource type="PackedScene" uid="uid://b7h6r27gjnh01" path="res://assets/scenes/sign.tscn" id="5_p143t"]
-[ext_resource type="PackedScene" uid="uid://m77c2fg0x3ga" path="res://bartender.tscn" id="6_1252o"]
+[ext_resource type="PackedScene" uid="uid://bocpbpbtd8bob" path="res://assets/scenes/bartender.tscn" id="6_k1m4m"]
 [ext_resource type="PackedScene" uid="uid://2agysw61vf0f" path="res://assets/scenes/door.tscn" id="6_m4l0e"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_atbuw"]
@@ -99,8 +99,9 @@ position = Vector2(237, 160)
 [node name="Door" parent="." instance=ExtResource("6_m4l0e")]
 position = Vector2(362, 116)
 
-[node name="Bartender" parent="." instance=ExtResource("6_1252o")]
-position = Vector2(29, 116)
+[node name="Bartender" parent="." instance=ExtResource("6_k1m4m")]
+position = Vector2(33, 116)
+script = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1

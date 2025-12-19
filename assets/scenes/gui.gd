@@ -4,7 +4,7 @@ extends Control
 @onready var timeDisplay: RichTextLabel = $Display/Time
 @onready var askNight: RichTextLabel = $Display/AskNight
 @onready var dayNightOverlay: CanvasModulate = $"../DayNightOverlay"
-@onready var dayNightGradient = load("res://dayNightGradient.tres")
+@onready var dayNightGradient = load("res://assets/Themes/dayNightGradient.tres")
 
 @export var cycle_speed := 0.01
 
