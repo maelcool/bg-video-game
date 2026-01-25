@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://co0lkrj2jeeyb"]
+
+[ext_resource type="Script" uid="uid://ig3t34s84ped" path="res://scipts/level_choser.gd" id="1_a4sws"]
+[ext_resource type="PackedScene" uid="uid://bhfxiihdwm6wj" path="res://assets/scenes/room_node.tscn" id="2_l42i5"]
+
+[node name="LevelChoser" type="Node2D"]
+script = ExtResource("1_a4sws")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 0
+offset_right = 318.0
+offset_bottom = 179.0
+color = Color(0.57, 0.44545498, 0.1767, 1)
+
+[node name="RoomNode" parent="Control" instance=ExtResource("2_l42i5")]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 75.0
+offset_right = 24.0
+offset_bottom = 93.0

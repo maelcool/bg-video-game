@@ -7,7 +7,6 @@ var level_scenes = {
 	"Night": "res://assets/scenes/night.tscn"
 }
 
-@onready var player = $World/Player
 @onready var level_container = $World/Level  
 
 func _ready():
@@ -16,7 +15,6 @@ func _ready():
 	Global.currentSceneNumber = 1
 	$GUI.night_emitted.connect(_on_night_called)
 	Global.slept.connect(_on_slept_called)
-	player.position = Vector2(79, 110)
 	Global.game = self
 
 func load_level(level_key: String):
@@ -47,23 +45,18 @@ func _on_next_level_called():
 	elif  Global.currentSceneNumber == 2:
 		load_level("Level3")
 		Global.currentSceneNumber = 3
-	player.position = Vector2(79, 140)
 
 func _on_night_called():
 	load_level("Night")
-	player.position = Vector2(79, 140)
 
 func _on_slept_called():
 	if Global.currentSceneNumber == 1:
 		load_level("Level1")
 		Global.currentSceneNumber = 1
-		player.position = Vector2(79, 110)
 	elif  Global.currentSceneNumber == 2:
 		load_level("Level2")
 		Global.currentSceneNumber = 2
-		player.position = Vector2(79, 140)
 	elif  Global.currentSceneNumber == 23:
 		load_level("Level3")
 		Global.currentSceneNumber = 3
-		player.position = Vector2(79, 140)
 	Global.stopTime = false

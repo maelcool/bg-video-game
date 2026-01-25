@@ -24,3 +24,10 @@ func _on_interact_range_body_exited(body):
 	if body is CharacterBody2D:
 		display_Interaction(false)
 		$LorePanel.visible = false
+
+
+func _on_interact_range_input_event(viewport, event, shape_idx):
+	if event is InputEventMouse:
+		if event.is_pressed():
+			print("HZUI")
+			$LorePanel.visible = true

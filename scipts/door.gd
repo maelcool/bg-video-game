@@ -33,3 +33,16 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body is CharacterBody2D:
 		display_Interaction(false)
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if event is InputEventMouse:
+		if event.is_pressed():
+			print("Door Pressed")
+			emit_signal("next_level")
+			if Global.currentSceneNumber == 1:
+				door1.visible = true
+			elif  Global.currentSceneNumber == 2:
+				print("UHGVSAD")
+				door2.visible = true
+			elif  Global.currentSceneNumber == 3:
+				door2.visible = true

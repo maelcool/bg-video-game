@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf6t8epr32o0s"]
+[gd_scene load_steps=7 format=3 uid="uid://bf6t8epr32o0s"]
 
-[ext_resource type="Script" path="res://assets/scenes/game.gd" id="1_i8ob4"]
-[ext_resource type="PackedScene" uid="uid://cjn7325o8oevw" path="res://assets/scenes/Player.tscn" id="1_mhc7m"]
-[ext_resource type="Script" path="res://scipts/camera_2d.gd" id="3_iowlj"]
+[ext_resource type="Script" uid="uid://rwxla6g6dlgg" path="res://assets/scenes/game.gd" id="1_i8ob4"]
+[ext_resource type="Script" uid="uid://c0jcr2tuas1f1" path="res://scipts/camera_2d.gd" id="3_iowlj"]
 [ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="4_ab7m7"]
-[ext_resource type="Script" path="res://assets/scenes/gui.gd" id="6_7wetd"]
+[ext_resource type="Script" uid="uid://suhn888oh7k4" path="res://assets/scenes/gui.gd" id="6_7wetd"]
 [ext_resource type="PackedScene" uid="uid://bi3pl15yydfwi" path="res://assets/scenes/card.tscn" id="6_wy0gd"]
 [ext_resource type="Resource" uid="uid://bc6yx5da4flbt" path="res://assets/cards/cardRessources/backside.tres" id="7_r5mg8"]
 
@@ -15,10 +14,6 @@ script = ExtResource("1_i8ob4")
 z_index = 21
 
 [node name="World" type="Node2D" parent="."]
-
-[node name="Player" parent="World" instance=ExtResource("1_mhc7m")]
-z_index = 3
-position = Vector2(79, 140)
 
 [node name="Level" type="Node2D" parent="World"]
 
@@ -36,6 +31,7 @@ offset_left = -2.0
 offset_top = 1.0
 offset_right = 319.0
 offset_bottom = 179.0
+mouse_filter = 2
 script = ExtResource("6_7wetd")
 
 [node name="Display" type="CanvasLayer" parent="GUI"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://2agysw61vf0f"]
 
-[ext_resource type="Script" path="res://scipts/door.gd" id="1_88ilj"]
+[ext_resource type="Script" uid="uid://b8ohxhmos5vje" path="res://scipts/door.gd" id="1_88ilj"]
 [ext_resource type="Texture2D" uid="uid://du03lmhoq5amu" path="res://assets/images/Door1.png" id="2_0ss1s"]
 [ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="3_brk8q"]
 [ext_resource type="Texture2D" uid="uid://c1q8nohm00dpy" path="res://assets/images/Door2.png" id="3_ceely"]
@@ -50,3 +50,4 @@ text = "[img=16x16]res://assets/images/PressEWhite.png[/img] "
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

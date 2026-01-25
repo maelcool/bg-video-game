@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=3 uid="uid://cjn7325o8oevw"]
 
-[ext_resource type="Script" path="res://scipts/player.gd" id="1_6stbi"]
+[ext_resource type="Script" uid="uid://cn83ne56sja44" path="res://scipts/player.gd" id="1_6stbi"]
 [ext_resource type="Texture2D" uid="uid://xapgvq8koigj" path="res://assets/animation/Tileset/KnightAttackLitBlue.png" id="2_bdskr"]
 [ext_resource type="Texture2D" uid="uid://bhbvwlduwccy" path="res://assets/animation/Human_Wizard_Attack(2).png" id="2_ngntw"]
 [ext_resource type="Texture2D" uid="uid://isd5uq6louqa" path="res://assets/animation/Human_Wizard-Idle(1).png" id="3_nskvs"]
@@ -339,6 +339,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
+collision_mask = 2
 script = ExtResource("1_6stbi")
 move_speed = 75.0
 jump_force = -175.0

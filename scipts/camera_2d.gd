@@ -4,7 +4,6 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	position = position.lerp($"../Player".position, delta * 3)
 	if Global.currentSceneNumber == 1:
 		limit_right = 418
 		limit_left = -4

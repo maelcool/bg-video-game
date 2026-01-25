@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7h6r27gjnh01"]
 
-[ext_resource type="Script" path="res://scipts/sign.gd" id="1_mbfic"]
+[ext_resource type="Script" uid="uid://mq4solhgbhet" path="res://scipts/sign.gd" id="1_mbfic"]
 [ext_resource type="Texture2D" uid="uid://cla3ryacr13ah" path="res://assets/images/Sign-1.png.png" id="2_a5ugq"]
 [ext_resource type="Texture2D" uid="uid://cxmcv3u5w72mq" path="res://assets/images/Quest-Paper.png" id="3_hmbc0"]
 [ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="4_e5glj"]
@@ -71,3 +71,4 @@ text = "[img=16x16]res://assets/images/PressEWhite.png[/img] "
 
 [connection signal="body_entered" from="Interact-Range" to="." method="_on_interact_range_body_entered"]
 [connection signal="body_exited" from="Interact-Range" to="." method="_on_interact_range_body_exited"]
+[connection signal="input_event" from="Interact-Range" to="." method="_on_interact_range_input_event"]

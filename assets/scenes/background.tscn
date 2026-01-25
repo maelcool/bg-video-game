@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://11qfadeygndu"]
+
+[node name="Background" type="ColorRect"]
+custom_minimum_size = Vector2(320, 180)
+color = Color(0.6, 0.41500002, 0.3, 1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bocpbpbtd8bob"]
 
-[ext_resource type="Script" path="res://scipts/bartender.gd" id="1_ixd7x"]
+[ext_resource type="Script" uid="uid://d3bqhkwrrrgwg" path="res://scipts/bartender.gd" id="1_ixd7x"]
 [ext_resource type="Texture2D" uid="uid://ul5pslnxdol8" path="res://assets/images/Bartender.png" id="1_s0d0t"]
 [ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="2_87g6o"]
 
@@ -8,6 +8,7 @@
 radius = 54.0093
 
 [node name="Bartender" type="Node2D"]
+position = Vector2(80, 115)
 script = ExtResource("1_ixd7x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,7 +17,7 @@ flip_h = true
 
 [node name="Interact-Range" type="Area2D" parent="."]
 position = Vector2(-19, 0)
-collision_layer = 15
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact-Range"]
 position = Vector2(17, 1)
@@ -41,6 +42,7 @@ bbcode_enabled = true
 text = "[img=16x16]res://assets/images/PressEWhite.png[/img] "
 
 [node name="LorePanel" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -8.0
@@ -72,3 +74,4 @@ Hit him with Left Mouse-Button
 
 [connection signal="body_entered" from="Interact-Range" to="." method="_on_interact_range_body_entered"]
 [connection signal="body_exited" from="Interact-Range" to="." method="_on_interact_range_body_exited"]
+[connection signal="input_event" from="Interact-Range" to="." method="_on_interact_range_input_event"]
