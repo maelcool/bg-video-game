@@ -9,4 +9,4 @@ var widthOfDraw: int = 4
 
 func _draw()->void:
 	print("DRAWN")
-	draw_line(positionOne,positionTwo,colorOfDraw,widthOfDraw)
+	#draw_line(positionOne,positionTwo,colorOfDraw,widthOfDraw)

@@ -1,11 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dryeotgsnbj87"]
+[gd_scene load_steps=29 format=4 uid="uid://dryeotgsnbj87"]
 
+[ext_resource type="PackedScene" uid="uid://cjn7325o8oevw" path="res://assets/scenes/Player.tscn" id="1_ir25h"]
 [ext_resource type="Texture2D" uid="uid://do4naj2d3pmcn" path="res://assets/images/Bar.png" id="1_wl2uq"]
 [ext_resource type="Texture2D" uid="uid://xf681pm1edvo" path="res://assets/Tileset/Wood-Tileset(2).png" id="2_k014y"]
 [ext_resource type="PackedScene" uid="uid://c86pp43s2e6kw" path="res://assets/scenes/table.tscn" id="2_kjg5t"]
 [ext_resource type="PackedScene" uid="uid://b7h6r27gjnh01" path="res://assets/scenes/sign.tscn" id="5_p143t"]
 [ext_resource type="PackedScene" uid="uid://bocpbpbtd8bob" path="res://assets/scenes/bartender.tscn" id="6_k1m4m"]
+[ext_resource type="Texture2D" uid="uid://bnioa51o6oeyk" path="res://assets/images/chandalier.png" id="6_kjsai"]
 [ext_resource type="PackedScene" uid="uid://2agysw61vf0f" path="res://assets/scenes/door.tscn" id="6_m4l0e"]
+[ext_resource type="Texture2D" uid="uid://dftmdjji8ro0q" path="res://assets/images/Fass.png" id="7_dsdyw"]
+[ext_resource type="Texture2D" uid="uid://q2fw2ial0vqd" path="res://assets/images/candleLong.png" id="7_kwwwe"]
+[ext_resource type="Texture2D" uid="uid://bjnu58jpn2afn" path="res://assets/images/candleShort.png" id="8_ir25h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_atbuw"]
 load_path = "res://.godot/imported/Dirt-Tile-Set.png-0765628ae4d139ebe1b1fdb6fcc324b1.ctex"
@@ -62,7 +67,101 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_y86o1")
 sources/1 = SubResource("TileSetAtlasSource_s8hop")
 
+[sub_resource type="Gradient" id="Gradient_kwwwe"]
+offsets = PackedFloat32Array(0, 0.61230767)
+colors = PackedColorArray(1, 1, 1, 1, 0.035019457, 0.035019457, 0.035019457, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ir25h"]
+gradient = SubResource("Gradient_kwwwe")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_kjsai"]
+offsets = PackedFloat32Array(0, 0.7630769)
+colors = PackedColorArray(0.9275594, 0.84196645, 0.6793593, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pyk6r"]
+gradient = SubResource("Gradient_kjsai")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_kwwwe"]
+_data = PackedByteArray("AAADAAUAAAABAAAADAAAAAwAAABMAAAAUklGRkQAAABXRUJQVlA4TDgAAAAvC8ACEBcgEEhxTAssEEhyWntIgUAS0/5YA8x/QPcGhYwkMQvxDaD6Mx5ERP8TMauvR6y7+5GGAg==")
+size_override = Vector2(12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir25h"]
+atlas = SubResource("PortableCompressedTexture2D_kwwwe")
+region = Rect2(0, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcr03"]
+atlas = SubResource("PortableCompressedTexture2D_kwwwe")
+region = Rect2(4, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha1g7"]
+atlas = SubResource("PortableCompressedTexture2D_kwwwe")
+region = Rect2(8, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02m7l"]
+atlas = SubResource("PortableCompressedTexture2D_kwwwe")
+region = Rect2(0, 4, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2017"]
+atlas = SubResource("PortableCompressedTexture2D_kwwwe")
+region = Rect2(4, 4, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh7aa"]
+atlas = SubResource("PortableCompressedTexture2D_kwwwe")
+region = Rect2(8, 4, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvpbd"]
+atlas = SubResource("PortableCompressedTexture2D_kwwwe")
+region = Rect2(0, 8, 4, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmkct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir25h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcr03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha1g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02m7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2017")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sh7aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvpbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcr03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir25h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02m7l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Level1" type="Node2D"]
+
+[node name="Fass" type="Sprite2D" parent="."]
+position = Vector2(222, 117)
+texture = ExtResource("7_dsdyw")
 
 [node name="Floor" type="Node2D" parent="."]
 
@@ -88,13 +187,82 @@ position = Vector2(83, 168.5)
 position = Vector2(111, 168.5)
 
 [node name="Table7" parent="Decorations" instance=ExtResource("2_kjg5t")]
-position = Vector2(190, 168.5)
+position = Vector2(233, 168.5)
 
 [node name="Table8" parent="Decorations" instance=ExtResource("2_kjg5t")]
-position = Vector2(161, 168.5)
+position = Vector2(204, 168.5)
 
 [node name="Sign" parent="Decorations" instance=ExtResource("5_p143t")]
 position = Vector2(136, 160)
+
+[node name="Chandalier" type="Sprite2D" parent="Decorations"]
+position = Vector2(153, 64)
+texture = ExtResource("6_kjsai")
+
+[node name="Fass" type="Sprite2D" parent="Decorations"]
+z_index = -1
+position = Vector2(11, 160)
+texture = ExtResource("7_dsdyw")
+
+[node name="Fass2" type="Sprite2D" parent="Decorations"]
+z_index = -1
+position = Vector2(57, 161)
+texture = ExtResource("7_dsdyw")
+
+[node name="Fass3" type="Sprite2D" parent="Decorations"]
+z_index = -1
+position = Vector2(34, 160)
+texture = ExtResource("7_dsdyw")
+
+[node name="Candle" type="Node2D" parent="Decorations"]
+
+[node name="CandleLong" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(18, 155)
+texture = ExtResource("7_kwwwe")
+
+[node name="CandleLong2" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(78, 160)
+texture = ExtResource("7_kwwwe")
+
+[node name="CandleLong3" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(114, 160)
+texture = ExtResource("7_kwwwe")
+
+[node name="CandleLong4" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(203, 160)
+texture = ExtResource("7_kwwwe")
+
+[node name="CandleLong5" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(235, 160)
+texture = ExtResource("7_kwwwe")
+
+[node name="CandleLong6" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(56, 155)
+texture = ExtResource("7_kwwwe")
+
+[node name="CandleShort" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(22, 155)
+texture = ExtResource("8_ir25h")
+
+[node name="CandleShort2" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(76, 160)
+texture = ExtResource("8_ir25h")
+
+[node name="CandleShort3" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(118, 160)
+texture = ExtResource("8_ir25h")
+
+[node name="CandleShort4" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(205, 160)
+texture = ExtResource("8_ir25h")
+
+[node name="CandleShort5" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(233, 160)
+texture = ExtResource("8_ir25h")
+
+[node name="CandleShort6" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(54, 155)
+texture = ExtResource("8_ir25h")
 
 [node name="Door" parent="." instance=ExtResource("6_m4l0e")]
 position = Vector2(269, 116)
@@ -110,3 +278,387 @@ offset_right = 570.0
 offset_bottom = 320.0
 mouse_filter = 2
 color = Color(0.517974, 0.407346, 0.125764, 1)
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Light"]
+color = Color(0.17755806, 0.52846396, 0.3928833, 1)
+energy = 0.5
+blend_mode = 1
+
+[node name="Chandalier" type="PointLight2D" parent="Light"]
+position = Vector2(154, 29)
+texture = SubResource("GradientTexture2D_ir25h")
+
+[node name="Chandalier2" type="PointLight2D" parent="Light"]
+position = Vector2(56, 109)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier3" type="PointLight2D" parent="Light"]
+position = Vector2(54, 111)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier4" type="PointLight2D" parent="Light"]
+position = Vector2(22, 111)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier5" type="PointLight2D" parent="Light"]
+position = Vector2(18, 109)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier6" type="PointLight2D" parent="Light"]
+position = Vector2(76, 116)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier7" type="PointLight2D" parent="Light"]
+position = Vector2(78, 114)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier8" type="PointLight2D" parent="Light"]
+position = Vector2(114, 114)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier9" type="PointLight2D" parent="Light"]
+position = Vector2(118, 116)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier10" type="PointLight2D" parent="Light"]
+position = Vector2(203, 114)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier11" type="PointLight2D" parent="Light"]
+position = Vector2(205, 116)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier12" type="PointLight2D" parent="Light"]
+position = Vector2(234, 114)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Chandalier13" type="PointLight2D" parent="Light"]
+position = Vector2(233, 115)
+color = Color(0.6, 0.3, 0, 1)
+texture = SubResource("GradientTexture2D_pyk6r")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CandleFire" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(56, 108)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire2" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(22, 110)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 6
+speed_scale = 1.15
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire4" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(18, 108)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 9
+speed_scale = 1.25
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire3" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(54, 110)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 9
+speed_scale = 0.85
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire5" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(76, 115)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 7
+speed_scale = 0.9
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire6" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(78, 113)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 7
+speed_scale = 1.3
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire7" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(114, 113)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 4
+speed_scale = 1.1
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire8" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(118, 115)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire9" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(203, 113)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 9
+speed_scale = 1.2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire10" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(205, 115)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 6
+speed_scale = 0.8
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire11" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(233, 115)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 2
+speed_scale = 0.9
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="CandleFire12" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(235, 113)
+sprite_frames = SubResource("SpriteFrames_dmkct")
+autoplay = "default"
+frame = 3
+speed_scale = 1.2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://asprite/CandleFireShort.aseprite",
+"source_uid": 3090041274811045191
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
+
+[node name="Player" parent="." instance=ExtResource("1_ir25h")]
+position = Vector2(175.1991, 87.10767)

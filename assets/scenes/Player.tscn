@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cjn7325o8oevw"]
+[gd_scene load_steps=59 format=3 uid="uid://cjn7325o8oevw"]
 
 [ext_resource type="Script" uid="uid://cn83ne56sja44" path="res://scipts/player.gd" id="1_6stbi"]
 [ext_resource type="Texture2D" uid="uid://xapgvq8koigj" path="res://assets/animation/Tileset/KnightAttackLitBlue.png" id="2_bdskr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cknsf1cbn3cn6" path="res://assets/animation/Tileset/KnightIgniteBlue.png" id="3_y7car"]
 [ext_resource type="Texture2D" uid="uid://on78jq5v2ic3" path="res://assets/animation/Human_Wizard_Walk(2).png" id="4_kfb06"]
 [ext_resource type="Texture2D" uid="uid://bjm6jhmg60cao" path="res://assets/animation/Knight.png" id="4_yg7eg"]
+[ext_resource type="Texture2D" uid="uid://6deaw5i2bgy2" path="res://addons/kenney_particle_pack/star_09.png" id="8_qu62d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68qvq"]
 size = Vector2(9, 27)
@@ -337,6 +338,46 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Curve" id="Curve_addju"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -0.89868414), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_aglt4"]
+curve = SubResource("Curve_addju")
+
+[sub_resource type="Curve" id="Curve_4wvqw"]
+_data = [Vector2(0.0032573342, 0), 0.0, 0.0, 0, 0, Vector2(0.762215, 0.94868416), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qu62d"]
+curve = SubResource("Curve_4wvqw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_addju"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.02
+scale_curve = SubResource("CurveTexture_qu62d")
+color = Color(0.5343863, 0.0988281, 0.6955981, 1)
+hue_variation_min = 0.019999977
+hue_variation_max = 0.019999977
+hue_variation_curve = SubResource("CurveTexture_aglt4")
+
+[sub_resource type="Gradient" id="Gradient_4wvqw"]
+offsets = PackedFloat32Array(0, 0.7323077)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qu62d"]
+gradient = SubResource("Gradient_4wvqw")
+width = 50
+height = 50
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
 collision_mask = 2
@@ -350,11 +391,23 @@ position = Vector2(-4.5, 0.5)
 shape = SubResource("RectangleShape2D_68qvq")
 
 [node name="WitchAnimator" type="AnimatedSprite2D" parent="."]
-visible = false
 sprite_frames = SubResource("SpriteFrames_aqdck")
-animation = &"Nothing"
+animation = &"Attack"
 
 [node name="KnightAnimator" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_w8ha1")
 animation = &"Walk"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(5, -5)
+emitting = false
+amount = 200
+texture = ExtResource("8_qu62d")
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_addju")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+texture = SubResource("GradientTexture2D_qu62d")

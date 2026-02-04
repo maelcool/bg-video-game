@@ -14,6 +14,18 @@ var playerCharacterArray = ["Witch","Knight"]
 var playerCards: Array = ["res://assets/cards/cardRessources/witch/smallHealing.tres","res://assets/cards/cardRessources/witch/smallBurst.tres",
 "res://assets/cards/cardRessources/witch/BigBurst.tres","res://assets/cards/cardRessources/witch/smallKnowledge.tres"]
 
+var level_scenes = {
+	"Level1": "res://assets/scenes/level_1.tscn",
+	"Level2": "res://assets/scenes/level_2.tscn",
+	"Level3": "res://assets/scenes/level_3.tscn",
+	"Night": "res://assets/scenes/night.tscn",
+	"Witch": "res://assets/scenes/night.tscn",
+	"Knight": "res://assets/scenes/night.tscn",
+	"Bar": "res://assets/scenes/level_1.tscn",
+	"Chest": "res://assets/scenes/night.tscn",
+	"LevelChoser": "res://assets/scenes/level_choser.tscn"
+}
+
 
 var card1
 var card2
@@ -28,6 +40,11 @@ func _ready():
 	playerCoins = 50
 	playerMana = 0
 
+func load_level(level_key: String):
+	currentScenePath = level_key
+	if game != null:
+		game.load_level(level_key)
+
 func changeCoins(value: int):
 	playerCoins += value
 	coins_changed.emit(playerCoins)
@@ -37,7 +54,6 @@ func playerHasSlept():
 
 func startFirstLevel():
 	if Global.currentSceneInstance != null:
-		print("UASD")
 		Global.currentSceneInstance.queue_free()
 		Global.currentSceneInstance = null
 	var scene_resource = load("res://assets/scenes/Game.tscn")

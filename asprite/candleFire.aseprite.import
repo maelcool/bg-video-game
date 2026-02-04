@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c040gfe6bwub5"
+path="res://.godot/imported/candleFire.aseprite-6451af06977ca4efaa48547e4b9586ea.res"
+
+[deps]
+
+source_file="res://asprite/candleFire.aseprite"
+dest_files=["res://.godot/imported/candleFire.aseprite-6451af06977ca4efaa48547e4b9586ea.res"]
+
+[params]
+

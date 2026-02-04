@@ -29,6 +29,10 @@ window/size/mode=3
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://cjfnpwyn87x4a"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
 [input]
 
 Jump={
@@ -72,6 +76,12 @@ Attack={
 2d_render/layer_3="Items"
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="Clickable"
+
+[physics]
+
+3d/default_gravity=0.0
+2d/default_gravity=0.0
+2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]
 

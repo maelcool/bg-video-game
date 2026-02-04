@@ -19,8 +19,10 @@ z_index = 21
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(65, 140)
-limit_left = -8
-limit_bottom = 200
+limit_left = 20
+limit_top = -9999976
+limit_right = 9999939
+limit_bottom = 180
 position_smoothing_enabled = true
 script = ExtResource("3_iowlj")
 

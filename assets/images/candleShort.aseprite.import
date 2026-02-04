@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b465nnby37yi4"
+path="res://.godot/imported/candleShort.aseprite-5002fd49f47efd4747e8787acae460e9.res"
+
+[deps]
+
+source_file="res://assets/images/candleShort.aseprite"
+dest_files=["res://.godot/imported/candleShort.aseprite-5002fd49f47efd4747e8787acae460e9.res"]
+
+[params]
+

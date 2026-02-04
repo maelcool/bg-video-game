@@ -11,13 +11,12 @@ func _ready():
 	ui_label = $Intraction_Label
 
 func _process(delta):
-	if Input.is_action_just_pressed("Interact") and ui_label.visible == true:
-		emit_signal("next_level")
+	if Input.is_action_just_pressed("Interact"):
+		Global.load_level("LevelChoser")
 	if Global.currentSceneNumber == 1:
 		door1.visible = true
 	elif  Global.currentSceneNumber == 2:
-		print("UHGVSAD")
-		door2.visible = true
+			door2.visible = true
 	elif  Global.currentSceneNumber == 3:
 		door2.visible = true
 
@@ -38,7 +37,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouse:
 		if event.is_pressed():
 			print("Door Pressed")
-			emit_signal("next_level")
+			Global.load_level("LevelChoser")
 			if Global.currentSceneNumber == 1:
 				door1.visible = true
 			elif  Global.currentSceneNumber == 2:

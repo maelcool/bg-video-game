@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cv0j2cxkvmcfn"
+path="res://.godot/imported/LevelChoserBackground.aseprite-a05eeda46d67590d599e2db0eb99b880.res"
+
+[deps]
+
+source_file="res://asprite/LevelChoserBackground.aseprite"
+dest_files=["res://.godot/imported/LevelChoserBackground.aseprite-a05eeda46d67590d599e2db0eb99b880.res"]
+
+[params]
+

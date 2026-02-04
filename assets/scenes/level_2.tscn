@@ -71,6 +71,7 @@ motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(420, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.39308554, 0.3930855, 0.39308548, 1)
 position = Vector2(154, 116)
 texture = ExtResource("2_s2stc")
 
@@ -92,3 +93,9 @@ texture = ExtResource("4_usqb4")
 
 [node name="Door" parent="." instance=ExtResource("6_8uwen")]
 position = Vector2(928, 129)
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Light"]
+color = Color(0.51718444, 0.5171845, 0.51718444, 1)
+blend_mode = 1

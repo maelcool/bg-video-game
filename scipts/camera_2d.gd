@@ -6,7 +6,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.currentSceneNumber == 1:
 		limit_right = 418
-		limit_left = -4
+		limit_left = 0
 		limit_bottom = 180
 		limit_top = 0
 	elif Global.currentSceneNumber == 2:

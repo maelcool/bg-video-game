@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://co0lkrj2jeeyb"]
+[gd_scene load_steps=6 format=4 uid="uid://co0lkrj2jeeyb"]
 
 [ext_resource type="Script" uid="uid://ig3t34s84ped" path="res://scipts/level_choser.gd" id="1_a4sws"]
 [ext_resource type="PackedScene" uid="uid://bhfxiihdwm6wj" path="res://assets/scenes/room_node.tscn" id="2_l42i5"]
-[ext_resource type="Script" uid="uid://0282vmwpyx3y" path="res://scipts/backgroundGraph.gd" id="3_42d2c"]
+[ext_resource type="Texture2D" uid="uid://b7jkywof6bauq" path="res://assets/images/ButtonLevelChoserHover.png" id="4_jwek4"]
+[ext_resource type="Texture2D" uid="uid://dhss5v4t55snw" path="res://assets/images/ButtonLevelChoserDisabled.png" id="5_sn5gt"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_42d2c"]
+_data = PackedByteArray("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")
+size_override = Vector2(320, 180)
 
 [node name="LevelChoser" type="Node2D"]
 script = ExtResource("1_a4sws")
@@ -15,13 +20,99 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="Control"]
-custom_minimum_size = Vector2(320, 180)
+[node name="Background" type="Sprite2D" parent="Control"]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_42d2c")
+offset = Vector2(160, 90)
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/LevelChoserBackground.aseprite",
+"source_uid": 6299011338066800239
+}
+metadata/_aseprite_wizard_source_file_hash_ = "eed799372b352ddcb7fcba4f4863b28e"
+
+[node name="UpperBlackBar" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(210, 5)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.47, 0.39104, 0.3008, 1)
-script = ExtResource("3_42d2c")
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 260.0
+offset_bottom = 55.0
+color = Color(0.078431375, 0.18039216, 0.07058824, 1)
+
+[node name="MiddleBlackBar" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(240, 5)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 95.0
+offset_right = 280.0
+offset_bottom = 100.0
+color = Color(0.22745098, 0.12156863, 0.039215688, 1)
+
+[node name="LowerBlackBar" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(210, 5)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 140.0
+offset_right = 260.0
+offset_bottom = 145.0
+color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+
+[node name="LowerCrossBar" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 0
+offset_left = 28.999998
+offset_top = 97.0
+offset_right = 83.028656
+offset_bottom = 102.0
+rotation = 0.9599311
+color = Color(0.16, 0.16, 0.16, 1)
+
+[node name="LowerCrossBar2" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 0
+offset_left = 258.0
+offset_top = 50.0
+offset_right = 312.02866
+offset_bottom = 55.0
+rotation = 0.9599311
+color = Color(0.078431375, 0.18039216, 0.07058824, 1)
+
+[node name="UpperCrossBar2" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 0
+offset_left = 57.000004
+offset_top = 52.0
+offset_right = 111.02866
+offset_bottom = 57.0
+rotation = 2.0943952
+color = Color(0.07933616, 0.17886963, 0.07082201, 1)
+
+[node name="UpperCrossBar3" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 0
+offset_left = 289.0
+offset_top = 98.0
+offset_right = 343.02866
+offset_bottom = 103.0
+rotation = 2.0943952
+color = Color(0.16078432, 0.16078432, 0.16078432, 1)
 
 [node name="RoomNode" parent="Control" instance=ExtResource("2_l42i5")]
 visible = false
@@ -31,3 +122,5 @@ offset_left = 7.0
 offset_top = 75.0
 offset_right = 24.0
 offset_bottom = 93.0
+texture_hover = ExtResource("4_jwek4")
+texture_disabled = ExtResource("5_sn5gt")

@@ -1,17 +1,10 @@
 extends Node2D
 
-var level_scenes = {
-	"Level1": "res://assets/scenes/level_1.tscn",
-	"Level2": "res://assets/scenes/level_2.tscn",
-	"Level3": "res://assets/scenes/level_3.tscn",
-	"Night": "res://assets/scenes/night.tscn"
-}
-
 @onready var level_container = $World/Level  
 
 func _ready():
-	load_level("Level1")  
-	Global.currentScenePath = level_scenes["Level1"]
+	load_level("LevelChoser")  
+	Global.currentScenePath = Global.level_scenes["LevelChoser"]
 	Global.currentSceneNumber = 1
 	$GUI.night_emitted.connect(_on_night_called)
 	Global.slept.connect(_on_slept_called)
@@ -19,16 +12,16 @@ func _ready():
 
 func load_level(level_key: String):
 	print("LOAD LEVEL CALLED with level key" + level_key)
-	if Global.currentScenePath == level_scenes[level_key]:
+	if Global.currentScenePath == Global.level_scenes[level_key]:
 		return
 	if Global.currentSceneInstance != null:
 		Global.currentSceneInstance.queue_free()
 		Global.currentSceneInstance = null
-	if level_scenes.has(level_key):
-		var scene_resource = load(level_scenes[level_key])
+	if Global.level_scenes.has(level_key):
+		var scene_resource = load(Global.level_scenes[level_key])
 		Global.currentSceneInstance = scene_resource.instantiate()
 		level_container.add_child(Global.currentSceneInstance)
-		Global.currentScenePath = level_scenes[level_key]
+		Global.currentScenePath = Global.level_scenes[level_key]
 	else:
 		push_error("Level not found: %s" % level_key)
 
