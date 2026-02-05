@@ -10,9 +10,6 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i8ob4")
 
-[node name="DayNightOverlay" type="CanvasModulate" parent="."]
-z_index = 21
-
 [node name="World" type="Node2D" parent="."]
 
 [node name="Level" type="Node2D" parent="World"]
@@ -50,21 +47,6 @@ offset_bottom = -151.012
 theme = ExtResource("4_ab7m7")
 bbcode_enabled = true
 text = "Coins
-"
-fit_content = true
-
-[node name="Time" type="RichTextLabel" parent="GUI/Display"]
-anchors_preset = -1
-anchor_top = 0.006
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 22.92
-offset_right = -158.0
-offset_bottom = -132.0
-theme = ExtResource("4_ab7m7")
-bbcode_enabled = true
-text = "Time
 "
 fit_content = true
 

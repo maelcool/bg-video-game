@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var move_speed: float = 0
 @export var jump_force: float = -225.0
-@export var gravity: float = 500.0
+@export var gravity: float = 0
 @onready var animated_sprite: AnimatedSprite2D 
 @onready var witchAnimator = $WitchAnimator
 @onready var knightAnimator = $KnightAnimator
@@ -37,49 +37,9 @@ func _physics_process(delta):
 		gpuParticles.emitting = true
 		return
 
-	input_vector.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
-
-
-	if input_vector.x != 0:
-		play_if_not("Walk")
-		animated_sprite.flip_h = input_vector.x < 0
-		time_since_idled = 0
-	else:
-		time_since_idled += delta
-		if time_since_idled >= time_until_idle:
-			play_if_not("Idle")
-		else:
-			play_if_not("Nothing")
-
 	if Input.is_action_just_pressed("Attack"):
 		attacking = true
 		animated_sprite.play("Attack")
-	
-	input_vector.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
-
-	if input_vector.x != 0:
-		animated_sprite.play("Walk")
-		animated_sprite.flip_h = input_vector.x < 0
-		time_since_idled = 0
-		if idle_played:
-			time_until_idle = randf_range(5,10)
-	else:
-		time_since_idled += delta
-		if time_since_idled >= time_until_idle:
-			animated_sprite.play("Idle")
-		else:
-			if animated_sprite.animation != "Nothing" and !attacking:
-				animated_sprite.play("Nothing")
-
-	if !is_on_floor():
-		velocity.y += gravity * delta
-	else:
-		if Input.is_action_just_pressed("Jump"):
-			velocity.y = jump_force
-
-	move_and_slide()
-
-	position = position.round()
 
 func play_if_not(anim: String):
 	if animated_sprite.animation != anim:

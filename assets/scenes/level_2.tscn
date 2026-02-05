@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfwtqwyf2trxx"]
+[gd_scene load_steps=14 format=4 uid="uid://cfwtqwyf2trxx"]
 
 [ext_resource type="Texture2D" uid="uid://c3udfq7dtui55" path="res://assets/Tileset/Dirt-Tile-Set.png" id="1_ek2ep"]
+[ext_resource type="PackedScene" uid="uid://cjn7325o8oevw" path="res://assets/scenes/Player.tscn" id="1_j604x"]
 [ext_resource type="Texture2D" uid="uid://3fshroden5t0" path="res://assets/Tileset/Tree-Tileset.png" id="1_pligw"]
 [ext_resource type="Texture2D" uid="uid://b6i3qxf87ehkl" path="res://assets/backgrounds/MountainBig.png" id="2_s2stc"]
 [ext_resource type="Texture2D" uid="uid://5jv2m4fmh7q3" path="res://assets/backgrounds/TreeParallax.png" id="3_5a7hr"]
@@ -51,7 +52,24 @@ physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_6ibw6")
 sources/0 = SubResource("TileSetAtlasSource_83q0o")
 
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_gcp6a"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAACIAAAAUklGRoAAAABXRUJQVlA4THQAAAAvD8ADED+gJpIkNXiUnwCGj19xAzKQpxWNZGN6JAratmHSA6wYhnyQ5j8A+KIQLwe+zE8HjQGbyLadLGAAvgL+V0DsM06gxn+bNET0fw4QUw4xVRXKkN0QMtMLa4GoOceX6TpQP35CYC3eGsgB6aP8iB/hDQ==")
+size_override = Vector2(16, 16)
+
+[sub_resource type="Gradient" id="Gradient_j604x"]
+offsets = PackedFloat32Array(0, 0.65625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gcp6a"]
+gradient = SubResource("Gradient_j604x")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="level_2" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_j604x")]
+z_index = 4
+position = Vector2(52, 163)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 1
@@ -80,6 +98,7 @@ motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(420, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.70380783, 0.70380783, 0.70380783, 1)
 position = Vector2(191, 94)
 texture = ExtResource("3_5a7hr")
 
@@ -88,6 +107,7 @@ motion_scale = Vector2(0.4, 0.4)
 motion_mirroring = Vector2(420, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.9166399, 0.91663986, 0.9166398, 1)
 position = Vector2(191, 94)
 texture = ExtResource("4_usqb4")
 
@@ -98,4 +118,72 @@ position = Vector2(928, 129)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Light"]
 color = Color(0.51718444, 0.5171845, 0.51718444, 1)
+energy = 0.61
 blend_mode = 1
+
+[node name="LanternOnGround" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, 168)
+texture = SubResource("PortableCompressedTexture2D_gcp6a")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/LanternOnGround.aseprite",
+"source_uid": 6736846141453531646
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0f333a8d91e71867506d5da08276b3b5"
+
+[node name="PointLight2D" type="PointLight2D" parent="LanternOnGround"]
+position = Vector2(1, -5)
+color = Color(0.6776461, 0.5304422, 0.15378448, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_gcp6a")
+
+[node name="LanternOnGround2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(242, 168)
+texture = SubResource("PortableCompressedTexture2D_gcp6a")
+flip_h = true
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/LanternOnGround.aseprite",
+"source_uid": 6736846141453531646
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0f333a8d91e71867506d5da08276b3b5"
+
+[node name="PointLight2D" type="PointLight2D" parent="LanternOnGround2"]
+position = Vector2(1, -5)
+color = Color(0.6776461, 0.5304422, 0.15378448, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_gcp6a")

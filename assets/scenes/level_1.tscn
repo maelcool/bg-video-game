@@ -1,6 +1,5 @@
-[gd_scene load_steps=29 format=4 uid="uid://dryeotgsnbj87"]
+[gd_scene load_steps=28 format=4 uid="uid://dryeotgsnbj87"]
 
-[ext_resource type="PackedScene" uid="uid://cjn7325o8oevw" path="res://assets/scenes/Player.tscn" id="1_ir25h"]
 [ext_resource type="Texture2D" uid="uid://do4naj2d3pmcn" path="res://assets/images/Bar.png" id="1_wl2uq"]
 [ext_resource type="Texture2D" uid="uid://xf681pm1edvo" path="res://assets/Tileset/Wood-Tileset(2).png" id="2_k014y"]
 [ext_resource type="PackedScene" uid="uid://c86pp43s2e6kw" path="res://assets/scenes/table.tscn" id="2_kjg5t"]
@@ -659,6 +658,3 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": 3090041274811045191
 }
 metadata/_aseprite_wizard_source_file_hash_ = "bbc48c0b782dd1aef1cd752131e38717"
-
-[node name="Player" parent="." instance=ExtResource("1_ir25h")]
-position = Vector2(175.1991, 87.10767)

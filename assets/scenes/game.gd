@@ -6,7 +6,6 @@ func _ready():
 	load_level("LevelChoser")  
 	Global.currentScenePath = Global.level_scenes["LevelChoser"]
 	Global.currentSceneNumber = 1
-	$GUI.night_emitted.connect(_on_night_called)
 	Global.slept.connect(_on_slept_called)
 	Global.game = self
 
