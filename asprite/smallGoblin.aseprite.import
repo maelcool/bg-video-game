@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cfyuero4rn23w"
+path="res://.godot/imported/smallGoblin.aseprite-7399aa622a1d89364685ebf64ad6f779.res"
+
+[deps]
+
+source_file="res://asprite/smallGoblin.aseprite"
+dest_files=["res://.godot/imported/smallGoblin.aseprite-7399aa622a1d89364685ebf64ad6f779.res"]
+
+[params]
+
