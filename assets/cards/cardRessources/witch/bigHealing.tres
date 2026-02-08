@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardStats" load_steps=3 format=3 uid="uid://omykww77tse2"]
+
+[ext_resource type="Script" uid="uid://dflhckg8qfxlp" path="res://scipts/cards.gd" id="1_4s65h"]
+[ext_resource type="Texture2D" uid="uid://c7vn3phtcmmx4" path="res://assets/cards/cardImages/BigHeal.png" id="1_f8ewb"]
+
+[resource]
+script = ExtResource("1_4s65h")
+id = "2"
+name = "Big Healing"
+cost = 4
+image = ExtResource("1_f8ewb")
+metadata/_custom_type_script = "uid://dflhckg8qfxlp"

@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf6t8epr32o0s"]
+[gd_scene load_steps=8 format=3 uid="uid://bf6t8epr32o0s"]
 
 [ext_resource type="Script" uid="uid://rwxla6g6dlgg" path="res://assets/scenes/game.gd" id="1_i8ob4"]
 [ext_resource type="Script" uid="uid://c0jcr2tuas1f1" path="res://scipts/camera_2d.gd" id="3_iowlj"]
 [ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="4_ab7m7"]
+[ext_resource type="Script" uid="uid://bnydifujc5iyy" path="res://scipts/hand.gd" id="5_1but2"]
 [ext_resource type="Script" uid="uid://suhn888oh7k4" path="res://assets/scenes/gui.gd" id="6_7wetd"]
-[ext_resource type="PackedScene" uid="uid://bi3pl15yydfwi" path="res://assets/scenes/card.tscn" id="6_wy0gd"]
-[ext_resource type="Resource" uid="uid://bc6yx5da4flbt" path="res://assets/cards/cardRessources/backside.tres" id="7_r5mg8"]
+
+[sub_resource type="Curve" id="Curve_1but2"]
+_data = [Vector2(0, 0), 0.0, 2.5, 0, 0, Vector2(0.5, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_do2vu"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 6.0, 0, 0, Vector2(0.5, 1.4901161e-08), 0.0, 0.0, 0, 0, Vector2(1, 1), 6.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i8ob4")
@@ -15,10 +23,10 @@ script = ExtResource("1_i8ob4")
 [node name="Level" type="Node2D" parent="World"]
 
 [node name="Camera2D" type="Camera2D" parent="World"]
-position = Vector2(65, 140)
-limit_left = 20
-limit_top = -9999976
-limit_right = 9999939
+position = Vector2(60, 92)
+limit_left = 0
+limit_top = 0
+limit_right = 320
 limit_bottom = 180
 position_smoothing_enabled = true
 script = ExtResource("3_iowlj")
@@ -50,6 +58,22 @@ text = "Coins
 "
 fit_content = true
 
+[node name="DisplayMana" type="RichTextLabel" parent="GUI/Display"]
+anchors_preset = -1
+anchor_top = 0.006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 17.92
+offset_right = -188.0
+offset_bottom = -133.0
+theme = ExtResource("4_ab7m7")
+bbcode_enabled = true
+text = "Mana
+
+"
+fit_content = true
+
 [node name="AskNight" type="RichTextLabel" parent="GUI/Display"]
 visible = false
 anchors_preset = -1
@@ -67,21 +91,13 @@ fit_content = true
 
 [node name="Fight" type="CanvasLayer" parent="GUI"]
 layer = 22
-visible = false
 
-[node name="Backside" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
-position = Vector2(32, 145)
-card = ExtResource("7_r5mg8")
-
-[node name="Card1" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
-z_index = 50
-position = Vector2(89, 145)
-
-[node name="Card2" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
-position = Vector2(134, 145)
-
-[node name="Card3" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
-position = Vector2(179, 145)
-
-[node name="Card4" parent="GUI/Fight" instance=ExtResource("6_wy0gd")]
-position = Vector2(224, 145)
+[node name="Hand" type="ColorRect" parent="GUI/Fight"]
+offset_left = 65.0
+offset_top = 150.0
+offset_right = 255.0
+offset_bottom = 170.0
+color = Color(1, 0.029999971, 0.029999971, 0)
+script = ExtResource("5_1but2")
+handCurve = SubResource("Curve_1but2")
+rotationCurve = SubResource("Curve_do2vu")

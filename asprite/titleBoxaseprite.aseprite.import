@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://xiekhig6t77f"
+path="res://.godot/imported/titleBoxaseprite.aseprite-d154088e33c4f5f4d793f145eab44e3c.res"
+
+[deps]
+
+source_file="res://asprite/titleBoxaseprite.aseprite"
+dest_files=["res://.godot/imported/titleBoxaseprite.aseprite-d154088e33c4f5f4d793f145eab44e3c.res"]
+
+[params]
+

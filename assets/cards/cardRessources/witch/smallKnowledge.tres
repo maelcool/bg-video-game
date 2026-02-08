@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://do5bli5jmqi7k"]
+[gd_resource type="Resource" script_class="CardStats" load_steps=3 format=3 uid="uid://do5bli5jmqi7k"]
 
-[ext_resource type="Script" path="res://scipts/cards.gd" id="1_b24t3"]
-[ext_resource type="Texture2D" uid="uid://dtlu2njrtmsf6" path="res://assets/cards/cardImages/witch/Small Knowledge.png" id="1_ec2sc"]
+[ext_resource type="Script" uid="uid://dflhckg8qfxlp" path="res://scipts/cards.gd" id="1_b24t3"]
+[ext_resource type="Texture2D" uid="uid://dorkmukw3tv0e" path="res://assets/cards/cardImages/Small Knowledge.png" id="1_rvyq2"]
 
 [resource]
 script = ExtResource("1_b24t3")
 id = "5"
 name = "Small Knowledge"
 cost = 1
-image = ExtResource("1_ec2sc")
+image = ExtResource("1_rvyq2")

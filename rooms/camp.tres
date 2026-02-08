@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RoomStats" load_steps=2 format=3 uid="uid://srn5b4d0s65n"]
+
+[ext_resource type="Script" uid="uid://b4rmv11dc7bwt" path="res://scipts/room_node.gd" id="1_8ff0v"]
+
+[resource]
+script = ExtResource("1_8ff0v")
+room_name = "Camp"
+metadata/_custom_type_script = "uid://b4rmv11dc7bwt"

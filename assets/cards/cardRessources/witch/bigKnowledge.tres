@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardStats" load_steps=3 format=3 uid="uid://dy25cbu1246xd"]
+
+[ext_resource type="Texture2D" uid="uid://duhu0fne25ahs" path="res://assets/cards/cardImages/Big Knowledge.png" id="1_1iwyg"]
+[ext_resource type="Script" uid="uid://dflhckg8qfxlp" path="res://scipts/cards.gd" id="1_6k5xv"]
+
+[resource]
+script = ExtResource("1_6k5xv")
+id = "6"
+name = "Big Knowledge"
+cost = 3
+image = ExtResource("1_1iwyg")
+metadata/_custom_type_script = "uid://dflhckg8qfxlp"

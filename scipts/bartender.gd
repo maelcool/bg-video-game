@@ -2,14 +2,10 @@ extends Node2D
 
 var ui_label
 func _ready():
-	ui_label = $"Interact-Range/Intraction_Label"
+	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("Interact"):
-		if $"Interact-Range/Intraction_Label".visible == true:
-			display_Interaction(false)
-			$LorePanel.visible = true
-
+	pass
 
 func display_Interaction(hideOrShow):
 	if ui_label != null:

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c5ep0bg2avui0"
+path="res://.godot/imported/smallBurstImage.aseprite-98089e4867031bf4187ee769199049c8.res"
+
+[deps]
+
+source_file="res://asprite/smallBurstImage.aseprite"
+dest_files=["res://.godot/imported/smallBurstImage.aseprite-98089e4867031bf4187ee769199049c8.res"]
+
+[params]
+

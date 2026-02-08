@@ -1,15 +1,16 @@
 extends Node2D
 
 @onready var level_container = $World/Level  
+@onready var fightOverlay = $GUI/Fight
+@onready var hand = $GUI/Fight/Hand
 
 func _ready():
-	load_level("LevelChoser")  
+	load_level("LevelChoser", "null")  
 	Global.currentScenePath = Global.level_scenes["LevelChoser"]
-	Global.currentSceneNumber = 1
-	Global.slept.connect(_on_slept_called)
+	Global.currentSceneNumber = -1
 	Global.game = self
 
-func load_level(level_key: String):
+func load_level(level_key: String, enemy: String):
 	print("LOAD LEVEL CALLED with level key" + level_key)
 	if Global.currentScenePath == Global.level_scenes[level_key]:
 		return
@@ -24,31 +25,31 @@ func load_level(level_key: String):
 	else:
 		push_error("Level not found: %s" % level_key)
 
-	if Global.currentSceneInstance.has_node("Door"):
-		var door_node = Global.currentSceneInstance.get_node("Door")
-		var callback = Callable(self, "_on_next_level_called")
-		if not door_node.is_connected("next_level", callback):
-			door_node.connect("next_level", callback)
 
-func _on_next_level_called():
-	if Global.currentSceneNumber == 1:
-		load_level("Level2")
-		Global.currentSceneNumber = 2
-	elif  Global.currentSceneNumber == 2:
-		load_level("Level3")
-		Global.currentSceneNumber = 3
+func startFighting(enemy: String):
+	print("H")
+	Global.playerCards.append(Global.possiblePlayerCards.get("smallHealing"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("smallBurst"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("bigBurst"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("bigHealing"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("smallKnowledge"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("bigKnowledge"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("smallHealing"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("smallBurst"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("bigBurst"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("bigHealing"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("smallKnowledge"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("bigKnowledge"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("smallHealing"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("smallBurst"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("bigBurst"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("bigHealing"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("smallKnowledge"))
+	Global.playerCards.append(Global.possiblePlayerCards.get("bigKnowledge"))
+	fightOverlay.visible = true
+	_setCards(5)
 
-func _on_night_called():
-	load_level("Night")
 
-func _on_slept_called():
-	if Global.currentSceneNumber == 1:
-		load_level("Level1")
-		Global.currentSceneNumber = 1
-	elif  Global.currentSceneNumber == 2:
-		load_level("Level2")
-		Global.currentSceneNumber = 2
-	elif  Global.currentSceneNumber == 23:
-		load_level("Level3")
-		Global.currentSceneNumber = 3
-	Global.stopTime = false
+func _setCards(howManyCards:int):
+	for i in range(howManyCards):
+		hand.draw()

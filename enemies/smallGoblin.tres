@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=5 format=3 uid="uid://bv73icdacrmpo"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=6 format=3 uid="uid://bv73icdacrmpo"]
 
 [ext_resource type="Script" uid="uid://n2j11nhtfbpl" path="res://enemies/enemyStats.gd" id="1_o25af"]
 [ext_resource type="Script" uid="uid://dflhckg8qfxlp" path="res://scipts/cards.gd" id="1_wikvu"]
 [ext_resource type="Resource" uid="uid://cf2pkldkuxugh" path="res://assets/cards/cardRessources/witch/smallBurst.tres" id="2_6n6pr"]
-[ext_resource type="Resource" uid="uid://0upn6kupc5oj" path="res://assets/cards/cardRessources/witch/BigBurst.tres" id="3_86q47"]
+[ext_resource type="Resource" uid="uid://0upn6kupc5oj" path="res://assets/cards/cardRessources/witch/bigBurst.tres" id="3_86q47"]
+[ext_resource type="Texture2D" uid="uid://c1y5gaiicniyb" path="res://assets/cards/cardImages/Backside.png" id="4_olea0"]
 
 [resource]
 script = ExtResource("1_o25af")
 max_health = 20
 cards = Array[ExtResource("1_wikvu")]([ExtResource("2_6n6pr"), ExtResource("3_86q47")])
+image = ExtResource("4_olea0")
 metadata/_custom_type_script = "uid://n2j11nhtfbpl"

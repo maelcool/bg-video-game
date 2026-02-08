@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RoomStats" load_steps=2 format=3 uid="uid://cdh8bp87m1xq6"]
+
+[ext_resource type="Script" uid="uid://b4rmv11dc7bwt" path="res://scipts/room_node.gd" id="1_i53fp"]
+
+[resource]
+script = ExtResource("1_i53fp")
+room_name = "Bar"
+unlocked = true
+metadata/_custom_type_script = "uid://b4rmv11dc7bwt"

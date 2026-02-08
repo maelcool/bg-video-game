@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7h6r27gjnh01"]
+[gd_scene load_steps=5 format=3 uid="uid://b7h6r27gjnh01"]
 
 [ext_resource type="Script" uid="uid://mq4solhgbhet" path="res://scipts/sign.gd" id="1_mbfic"]
 [ext_resource type="Texture2D" uid="uid://cla3ryacr13ah" path="res://assets/images/Sign-1.png.png" id="2_a5ugq"]
 [ext_resource type="Texture2D" uid="uid://cxmcv3u5w72mq" path="res://assets/images/Quest-Paper.png" id="3_hmbc0"]
 [ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="4_e5glj"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_h17ma"]
-radius = 36.0139
 
 [node name="Sign" type="Node2D"]
 script = ExtResource("1_mbfic")
@@ -44,31 +41,3 @@ text = "Quest:
 Save the Prince from the evil Dragon-Lord!
 Reward: 200G
 "
-
-[node name="Interact-Range" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact-Range"]
-position = Vector2(0, -13)
-shape = SubResource("CircleShape2D_h17ma")
-
-[node name="Intraction_Label" type="RichTextLabel" parent="Interact-Range"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -42.0
-offset_right = 77.0
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme = ExtResource("4_e5glj")
-bbcode_enabled = true
-text = "[img=16x16]res://assets/images/PressEWhite.png[/img] "
-
-[connection signal="body_entered" from="Interact-Range" to="." method="_on_interact_range_body_entered"]
-[connection signal="body_exited" from="Interact-Range" to="." method="_on_interact_range_body_exited"]
-[connection signal="input_event" from="Interact-Range" to="." method="_on_interact_range_input_event"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RoomStats" load_steps=2 format=3 uid="uid://begfjyrb6towc"]
+
+[ext_resource type="Script" uid="uid://b4rmv11dc7bwt" path="res://scipts/room_node.gd" id="1_owon7"]
+
+[resource]
+script = ExtResource("1_owon7")
+room_name = "Dragon Boss"
+metadata/_custom_type_script = "uid://b4rmv11dc7bwt"

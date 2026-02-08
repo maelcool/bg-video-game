@@ -1,7 +1,7 @@
-extends Node2D
+extends Control
 
-@export var card: Card
-@export var expandSize: float = 1.01
+@export var card: CardStats
+@export var expandSize: float = 1.05
 
 @onready var sprite2D: Sprite2D = $image
 

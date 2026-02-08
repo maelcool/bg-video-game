@@ -176,26 +176,18 @@ z_index = 1
 position = Vector2(0, -44)
 
 [node name="Bar" type="Sprite2D" parent="Decorations"]
+z_index = 3
 position = Vector2(160, 86)
 texture = ExtResource("1_wl2uq")
 
 [node name="Table5" parent="Decorations" instance=ExtResource("2_kjg5t")]
-position = Vector2(83, 168.5)
-
-[node name="Table6" parent="Decorations" instance=ExtResource("2_kjg5t")]
-position = Vector2(111, 168.5)
-
-[node name="Table7" parent="Decorations" instance=ExtResource("2_kjg5t")]
-position = Vector2(233, 168.5)
-
-[node name="Table8" parent="Decorations" instance=ExtResource("2_kjg5t")]
-position = Vector2(204, 168.5)
+position = Vector2(78, 169)
 
 [node name="Sign" parent="Decorations" instance=ExtResource("5_p143t")]
-position = Vector2(136, 160)
+position = Vector2(108, 160)
 
 [node name="Chandalier" type="Sprite2D" parent="Decorations"]
-position = Vector2(153, 64)
+position = Vector2(72, 99)
 texture = ExtResource("6_kjsai")
 
 [node name="Fass" type="Sprite2D" parent="Decorations"]
@@ -223,18 +215,6 @@ texture = ExtResource("7_kwwwe")
 position = Vector2(78, 160)
 texture = ExtResource("7_kwwwe")
 
-[node name="CandleLong3" type="Sprite2D" parent="Decorations/Candle"]
-position = Vector2(114, 160)
-texture = ExtResource("7_kwwwe")
-
-[node name="CandleLong4" type="Sprite2D" parent="Decorations/Candle"]
-position = Vector2(203, 160)
-texture = ExtResource("7_kwwwe")
-
-[node name="CandleLong5" type="Sprite2D" parent="Decorations/Candle"]
-position = Vector2(235, 160)
-texture = ExtResource("7_kwwwe")
-
 [node name="CandleLong6" type="Sprite2D" parent="Decorations/Candle"]
 position = Vector2(56, 155)
 texture = ExtResource("7_kwwwe")
@@ -247,26 +227,11 @@ texture = ExtResource("8_ir25h")
 position = Vector2(76, 160)
 texture = ExtResource("8_ir25h")
 
-[node name="CandleShort3" type="Sprite2D" parent="Decorations/Candle"]
-position = Vector2(118, 160)
-texture = ExtResource("8_ir25h")
-
-[node name="CandleShort4" type="Sprite2D" parent="Decorations/Candle"]
-position = Vector2(205, 160)
-texture = ExtResource("8_ir25h")
-
-[node name="CandleShort5" type="Sprite2D" parent="Decorations/Candle"]
-position = Vector2(233, 160)
-texture = ExtResource("8_ir25h")
-
-[node name="CandleShort6" type="Sprite2D" parent="Decorations/Candle"]
-position = Vector2(54, 155)
-texture = ExtResource("8_ir25h")
-
 [node name="Door" parent="." instance=ExtResource("6_m4l0e")]
-position = Vector2(269, 116)
+position = Vector2(146, 116)
 
 [node name="Bartender" parent="." instance=ExtResource("6_k1m4m")]
+z_index = 2
 position = Vector2(35, 115)
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -286,67 +251,44 @@ energy = 0.5
 blend_mode = 1
 
 [node name="Chandalier" type="PointLight2D" parent="Light"]
-position = Vector2(154, 29)
+position = Vector2(72, 63)
+energy = 0.5
 texture = SubResource("GradientTexture2D_ir25h")
 
 [node name="Chandalier2" type="PointLight2D" parent="Light"]
 position = Vector2(56, 109)
 color = Color(0.6, 0.3, 0, 1)
+energy = 0.5
 texture = SubResource("GradientTexture2D_pyk6r")
 
 [node name="Chandalier3" type="PointLight2D" parent="Light"]
 position = Vector2(54, 111)
 color = Color(0.6, 0.3, 0, 1)
+energy = 0.5
 texture = SubResource("GradientTexture2D_pyk6r")
 
 [node name="Chandalier4" type="PointLight2D" parent="Light"]
 position = Vector2(22, 111)
 color = Color(0.6, 0.3, 0, 1)
+energy = 0.5
 texture = SubResource("GradientTexture2D_pyk6r")
 
 [node name="Chandalier5" type="PointLight2D" parent="Light"]
 position = Vector2(18, 109)
 color = Color(0.6, 0.3, 0, 1)
+energy = 0.5
 texture = SubResource("GradientTexture2D_pyk6r")
 
 [node name="Chandalier6" type="PointLight2D" parent="Light"]
 position = Vector2(76, 116)
 color = Color(0.6, 0.3, 0, 1)
+energy = 0.5
 texture = SubResource("GradientTexture2D_pyk6r")
 
 [node name="Chandalier7" type="PointLight2D" parent="Light"]
 position = Vector2(78, 114)
 color = Color(0.6, 0.3, 0, 1)
-texture = SubResource("GradientTexture2D_pyk6r")
-
-[node name="Chandalier8" type="PointLight2D" parent="Light"]
-position = Vector2(114, 114)
-color = Color(0.6, 0.3, 0, 1)
-texture = SubResource("GradientTexture2D_pyk6r")
-
-[node name="Chandalier9" type="PointLight2D" parent="Light"]
-position = Vector2(118, 116)
-color = Color(0.6, 0.3, 0, 1)
-texture = SubResource("GradientTexture2D_pyk6r")
-
-[node name="Chandalier10" type="PointLight2D" parent="Light"]
-position = Vector2(203, 114)
-color = Color(0.6, 0.3, 0, 1)
-texture = SubResource("GradientTexture2D_pyk6r")
-
-[node name="Chandalier11" type="PointLight2D" parent="Light"]
-position = Vector2(205, 116)
-color = Color(0.6, 0.3, 0, 1)
-texture = SubResource("GradientTexture2D_pyk6r")
-
-[node name="Chandalier12" type="PointLight2D" parent="Light"]
-position = Vector2(234, 114)
-color = Color(0.6, 0.3, 0, 1)
-texture = SubResource("GradientTexture2D_pyk6r")
-
-[node name="Chandalier13" type="PointLight2D" parent="Light"]
-position = Vector2(233, 115)
-color = Color(0.6, 0.3, 0, 1)
+energy = 0.5
 texture = SubResource("GradientTexture2D_pyk6r")
 
 [node name="Node2D" type="Node2D" parent="."]

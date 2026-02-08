@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cf2pkldkuxugh"]
+[gd_resource type="Resource" script_class="CardStats" load_steps=3 format=3 uid="uid://cf2pkldkuxugh"]
 
-[ext_resource type="Texture2D" uid="uid://b0ra72ysftavy" path="res://assets/cards/cardImages/witch/Small Burst.png" id="1_a6gpy"]
-[ext_resource type="Script" path="res://scipts/cards.gd" id="1_lshl3"]
+[ext_resource type="Texture2D" uid="uid://cdx2vmrax11t6" path="res://assets/cards/cardImages/Small Burst.png" id="1_5623p"]
+[ext_resource type="Script" uid="uid://dflhckg8qfxlp" path="res://scipts/cards.gd" id="1_lshl3"]
 
 [resource]
 script = ExtResource("1_lshl3")
 id = "3"
 name = "Small Burst"
 cost = 2
-image = ExtResource("1_a6gpy")
+image = ExtResource("1_5623p")

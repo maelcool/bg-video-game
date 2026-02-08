@@ -1,6 +1,6 @@
 # card.gd
 extends Resource
-class_name Card
+class_name CardStats
 
 @export var id: String
 @export var name: String

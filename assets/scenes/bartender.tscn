@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bocpbpbtd8bob"]
+[gd_scene load_steps=4 format=3 uid="uid://bocpbpbtd8bob"]
 
 [ext_resource type="Script" uid="uid://d3bqhkwrrrgwg" path="res://scipts/bartender.gd" id="1_ixd7x"]
 [ext_resource type="Texture2D" uid="uid://ul5pslnxdol8" path="res://assets/images/Bartender.png" id="1_s0d0t"]
 [ext_resource type="Theme" uid="uid://bi8ly86cwk4mf" path="res://assets/Themes/defaultTheme.tres" id="2_87g6o"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ywjv2"]
-radius = 54.0093
 
 [node name="Bartender" type="Node2D"]
 position = Vector2(80, 115)
@@ -14,32 +11,6 @@ script = ExtResource("1_ixd7x")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_s0d0t")
 flip_h = true
-
-[node name="Interact-Range" type="Area2D" parent="."]
-position = Vector2(-19, 0)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact-Range"]
-position = Vector2(17, 1)
-shape = SubResource("CircleShape2D_ywjv2")
-
-[node name="Intraction_Label" type="RichTextLabel" parent="Interact-Range"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 10.0
-offset_top = -43.0
-offset_right = 96.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme = ExtResource("2_87g6o")
-bbcode_enabled = true
-text = "[img=16x16]res://assets/images/PressEWhite.png[/img] "
 
 [node name="LorePanel" type="Control" parent="."]
 visible = false
@@ -71,7 +42,3 @@ text = "Please save our Kindom!
 The Evil Dragon-Lord has raised taxes by over 200% :(
 Hit him with Left Mouse-Button
 "
-
-[connection signal="body_entered" from="Interact-Range" to="." method="_on_interact_range_body_entered"]
-[connection signal="body_exited" from="Interact-Range" to="." method="_on_interact_range_body_exited"]
-[connection signal="input_event" from="Interact-Range" to="." method="_on_interact_range_input_event"]

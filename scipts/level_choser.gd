@@ -1,127 +1,98 @@
 extends Node2D
 
-@export var numberOfRoomsPerLine = 5
-@export var roomNode = preload("res://assets/scenes/room_node.tscn")
+@export var numberOfRoomsPerLine: int = 5
 
-@onready var firstRoomNode = $Control/RoomNode
+@onready var roomScene = preload("res://assets/scenes/room_node.tscn")
 @onready var control = $Control
-@onready var background = $Control/Background
 
-enum rooms{Grasslevel, Camp, Random, Chest}
-enum grassRooms{Witch, Knight, Mystery, Camp, Chest}
-enum dungeonRoom{Leprechaun, Troll, Mystery, Camp, Chest}
-enum specificRooms{Bar, DragonBossfight}
-var tree: Array = []
-var spaceBetweenRooms:float = 250.0 / numberOfRoomsPerLine
+var grassRoom: Dictionary = {
+	"Goblin": preload("res://rooms/goblin.tres"),
+	"Chest": preload("res://rooms/chest.tres")
+	 }
+var forestRoom: Dictionary = {
+	"Witch": preload("res://rooms/witch.tres") , 
+	"Mystery": preload("res://rooms/mystery.tres"), 
+	"Camp": preload("res://rooms/camp.tres"), 
+	"Chest": preload("res://rooms/chest.tres")
+	}
+var dungeonRoom:Dictionary =  {
+	"Knight": preload("res://rooms/knight.tres"), 
+	"Mystery": preload("res://rooms/mystery.tres"), 
+	"Camp": preload("res://rooms/camp.tres"), 
+	"Chest": preload("res://rooms/chest.tres")
+	}
 
-var pathChosen: int 
-var levelOnPathOne: Array = []
-var levelOnPathTwo: Array = []
-var levelOnPathThree: Array = []
-var enteredRooms: Array = []
+var specialRoom:Dictionary= { 
+	"Bar" : preload("res://rooms/bar.tres") , 
+	"DragonBoss" : preload("res://rooms/dragonBoss.tres") }
 
-# Called when the node enters the scene tree for the first time.
+var spaceBetweenRooms := 250.0 / numberOfRoomsPerLine
+
 func _ready():
-	_createSpecificRoom(specificRooms.Bar)
-	for i in range(numberOfRoomsPerLine):
-		_addChildToRoomNode(1)
-	for i in range(numberOfRoomsPerLine):
-		_addChildToRoomNode(2)
-	for i in range(numberOfRoomsPerLine):
-		_addChildToRoomNode(3)
-	_createSpecificRoom(specificRooms.DragonBossfight)
-
-
-
-func _addChildToRoomNode(line: int):
-	var newRoom = roomNode.instantiate()
-	newRoom = _randomizeRoom(newRoom, line)
-	control.add_child(newRoom)
-	tree.append(newRoom)
-
-func _randomizeRoom(room: TextureButton, line: int) -> TextureButton:
-	var randomRoom
-	var randomName:String
-	match line:
-		1:
-			randomRoom = grassRooms.values().pick_random()
-			randomName = grassRooms.keys()[randomRoom] 
-			room.position = Vector2(((tree.size())*spaceBetweenRooms),45)
-			levelOnPathOne.append(randomName)
-		2:
-			randomRoom = rooms.values().pick_random()
-			randomName = rooms.keys()[randomRoom] 
-			room.position = Vector2(((tree.size()-numberOfRoomsPerLine)*spaceBetweenRooms),90)
-			levelOnPathTwo.append(randomName)
-		3:
-			randomRoom = dungeonRoom.values().pick_random()
-			randomName = dungeonRoom.keys()[randomRoom] 
-			room.position = Vector2(((tree.size()-2*numberOfRoomsPerLine)*spaceBetweenRooms),135)
-			levelOnPathThree.append(randomName)
-	room.get_child(0).text = "[center][color=white][b]" + randomName +"[/b][/color][/center]"
-	room.pressed.connect(func():
-		_roomButtonPressed(randomName)
-	)
-	return room
-
-func _createSpecificRoom(wichRoom: specificRooms):
-	var newRoom = roomNode.instantiate()
-	var roomName
-	match wichRoom:
-		specificRooms.Bar:
-			newRoom.position = Vector2(20,90)
-			newRoom.get_child(0).text = "[center][color=dark_green][b]Bar[/b][/color][/center]"
-			roomName = "Bar"
-		specificRooms.DragonBossfight:
-			newRoom.position = Vector2(280,90)
-			newRoom.get_child(0).text = "[center][color=dark_red][b]Boss[/b][/color][/center]"
-			roomName ="DragonFight"
-	control.add_child(newRoom)
-	tree.append(newRoom)
-	newRoom.pressed.connect(func():
-		_roomButtonPressed(roomName)
-	)
-	
-func _roomButtonPressed(name: String):
-	print("Triggered")
-	_appendEnetredRooms(name)
-	match  name:
-		"Chest":
-			print("printed ")
-			Global.load_level("Chest")
-			#SceneManager.change_scene(Global.level_scenes.get("Chest"))
-		"Witch":
-			pass
-			#SceneManager.change_scene(Global.level_scenes.get("Witch"))
-		"Knight":
-			pass
-			#SceneManager.change_scene(Global.level_scenes.get("Knight"))
-		"Camp":
-			pass
-			#SceneManager.change_scene(Global.level_scenes.get("Camp"))
-		"Bar":
-			Global.load_level("Bar")
-			#SceneManager.change_scene(Global.level_scenes.get("Bar"))
-
-
-func _appendEnetredRooms(roomName: String):
-	if pathChosen == 1:
-		for i in levelOnPathOne:
-			enteredRooms.append(i)
-			i.disable = true
-		for i in levelOnPathOne:
-			enteredRooms.append(i)
-	elif pathChosen == 2:
-		for i in levelOnPathOne:
-			enteredRooms.append(i)
-		for i in levelOnPathOne:
-			enteredRooms.append(i)
+	if Global.amountVisited != 0:
+		print(" SECOND TIME BABY" + str(Global.amountVisited))
+		loadTree()
+		_lock_rooms()
 	else:
-		for i in levelOnPathOne:
-			enteredRooms.append(i)
-		for i in levelOnPathOne:
-			enteredRooms.append(i)
+		print("First TIME BABY " + str(Global.amountVisited))
+		createRoomTree()
+		loadTree()
+	Global.amountVisited += 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+
+# --------------------------------------------------
+# ROOM CREATION
+# --------------------------------------------------
+
+func createRoomTree():
+	if Global.treeGenerated:
+		return
+	
+	# Bar
+	Global.roomTree.append(specialRoom.get("Bar"))
+	
+	#randomly append for each line
+	for x in range(numberOfRoomsPerLine):
+		Global.roomTree.append(grassRoom.values().pick_random())
+		Global.roomTree[Global.roomTree.size()-1].line = 1
+		print(Global.roomTree[Global.roomTree.size()-1].line)
+	for x in range(numberOfRoomsPerLine):
+		Global.roomTree.append(forestRoom.values().pick_random())
+		Global.roomTree[Global.roomTree.size()-1].line = 2
+	for x in range(numberOfRoomsPerLine):
+		Global.roomTree.append(dungeonRoom.values().pick_random())
+		Global.roomTree[Global.roomTree.size()-1].line = 3
+	
+	# DragonBoss
+	Global.roomTree.append(specialRoom.get("DragonBoss"))
+
+func loadTree():
+	var counter = 0
+	for i in Global.roomTree:
+		counter += 1
+		var specificRoomScene = roomScene.instantiate()
+		specificRoomScene.get_child(0).text = "[center][b]%s[/b][/center]" % i.room_name
+		specificRoomScene.pressed.connect(func():
+			print("PRESSDED BUTTONS")
+			_onRoomPressed(i)
+		)
+		control.add_child(specificRoomScene)
+		if counter == 1:
+			specificRoomScene.position = Vector2(20, 90)
+		elif counter <= (Global.roomTree.size() / 3.0) +1:
+			specificRoomScene.position = Vector2((counter-1) * spaceBetweenRooms, 45)
+		elif counter <= ((Global.roomTree.size()*2) / 3.0) :
+
+			specificRoomScene.position = Vector2((counter- numberOfRoomsPerLine-1) * spaceBetweenRooms, 90)
+		elif counter < (Global.roomTree.size()):
+			specificRoomScene.position = Vector2((counter - (2 * numberOfRoomsPerLine)-1) * spaceBetweenRooms, 135)
+		else:
+			specificRoomScene.position = Vector2(280, 90)
+
+func _onRoomPressed(room: RoomStats):
+	print("ON ROOM PRESSD" + str(room.line) + str(room.room_name))
+	Global.load_level(room.line, room.room_name)
+
+
+func _lock_rooms():
 	pass

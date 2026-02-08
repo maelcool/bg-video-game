@@ -5,43 +5,16 @@ extends Node2D
 @onready var door3 = $Door3
 
 var ui_label
-signal next_level
 
 func _ready():
-	ui_label = $Intraction_Label
+	pass
 
-func _process(delta):
-	if Input.is_action_just_pressed("Interact"):
-		Global.load_level("LevelChoser")
-	if Global.currentSceneNumber == 1:
-		door1.visible = true
-	elif  Global.currentSceneNumber == 2:
-			door2.visible = true
-	elif  Global.currentSceneNumber == 3:
-		door2.visible = true
+func _process(_delta):
+	pass
 
 
-func display_Interaction(isVisible: bool):
-	if ui_label != null:
-		ui_label.visible = isVisible
-
-func _on_area_2d_body_entered(body):
-	if body is CharacterBody2D:
-		display_Interaction(true) 
-
-func _on_area_2d_body_exited(body):
-	if body is CharacterBody2D:
-		display_Interaction(false)
-
-func _on_area_2d_input_event(viewport, event, shape_idx):
+func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouse:
 		if event.is_pressed():
 			print("Door Pressed")
-			Global.load_level("LevelChoser")
-			if Global.currentSceneNumber == 1:
-				door1.visible = true
-			elif  Global.currentSceneNumber == 2:
-				print("UHGVSAD")
-				door2.visible = true
-			elif  Global.currentSceneNumber == 3:
-				door2.visible = true
+			Global.load_level(-1, "null")

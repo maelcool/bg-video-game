@@ -11,8 +11,16 @@ var stopTime: bool = false
 var isPlayerinFight: bool = false
 var playerCharacter: String
 var playerCharacterArray = ["Witch","Knight"]
-var playerCards: Array = ["res://assets/cards/cardRessources/witch/smallHealing.tres","res://assets/cards/cardRessources/witch/smallBurst.tres",
-"res://assets/cards/cardRessources/witch/BigBurst.tres","res://assets/cards/cardRessources/witch/smallKnowledge.tres"]
+var possiblePlayerCards: Dictionary ={
+	"smallHealing": preload("res://assets/cards/cardRessources/witch/smallHealing.tres"),
+	"bigHealing": preload("res://assets/cards/cardRessources/witch/bigHealing.tres"),
+	"smallBurst": preload("res://assets/cards/cardRessources/witch/smallBurst.tres"),
+	"bigBurst": preload("res://assets/cards/cardRessources/witch/BigBurst.tres"),
+	"smallKnowledge": preload("res://assets/cards/cardRessources/witch/smallKnowledge.tres"),
+	"bigKnowledge": preload("res://assets/cards/cardRessources/witch/bigKnowledge.tres")
+}
+
+var playerCards: Array[CardStats] = []
 
 var level_scenes = {
 	"Level1": "res://assets/scenes/level_1.tscn",
@@ -23,7 +31,11 @@ var level_scenes = {
 	"Knight": "res://assets/scenes/night.tscn",
 	"Bar": "res://assets/scenes/level_1.tscn",
 	"Chest": "res://assets/scenes/night.tscn",
-	"LevelChoser": "res://assets/scenes/level_choser.tscn"
+	"LevelChoser": "res://assets/scenes/level_choser.tscn",
+	"Camp": "res://assets/scenes/night.tscn",
+	"Mystery": "res://assets/scenes/night.tscn",
+	"Goblin": "res://assets/scenes/night.tscn",
+	"DragonBoss": "res://assets/scenes/night.tscn"
 }
 
 
@@ -31,6 +43,11 @@ var card1
 var card2
 var card3
 var card4
+
+# ------------- Level Choser -------------
+var roomTree: Array[RoomStats] = []
+var treeGenerated: bool = false
+var amountVisited = 0
 
 signal coins_changed(value)
 signal slept
@@ -40,10 +57,29 @@ func _ready():
 	playerCoins = 50
 	playerMana = 0
 
-func load_level(level_key: String):
-	currentScenePath = level_key
-	if game != null:
-		game.load_level(level_key)
+func load_level(level_key: int, enemy: String):
+	print(level_key)
+	currentSceneNumber = level_key
+	print("CURRENT SCENE NUMEBR" +str(currentSceneNumber))
+	if level_key == -1:
+		currentScenePath = "LevelChoser"
+		if game != null:
+			game.load_level("LevelChoser", enemy)
+	elif level_key == 0:
+		currentScenePath = "Bar"
+		if game != null:
+			game.load_level("Bar", enemy)
+	elif level_key == 1:
+		currentScenePath = "Level2"
+		game.startFighting(enemy)
+		if game != null:
+			game.load_level("Level2", enemy)
+	elif level_key == 2 or level_key == 3:
+		currentScenePath = "Level3"
+		if game != null:
+			game.load_level("Level3", enemy)
+	else:
+		printerr("LOAD LEVEL GLOBAL, NO VALID LEVEL KEY" + str(level_key))
 
 func changeCoins(value: int):
 	playerCoins += value
@@ -61,22 +97,3 @@ func startFirstLevel():
 	Global.currentScenePath = "res://assets/scenes/Game.tscn"
 	Global.currentSceneNumber = 1
 	get_tree().change_scene_to_file("res://assets/scenes/Game.tscn")
-
-func fightTriggered(enemy: Node2D):
-	stopTime = true
-	var fightCanvas = game.get_node("GUI/Fight")
-	fightCanvas.visible = true
-	isPlayerinFight = true
-	_setCards(fightCanvas)
-
-
-func _setCards(fightCanvas):
-	var playerDeck = playerCards.duplicate()
-	playerDeck.shuffle()
-	var playerHand:Array = playerDeck.slice(0,min(3, playerDeck.size()))
-	card1 = fightCanvas.get_child(1)
-	card1.setCardFromPath(playerHand[0])
-	card2 = fightCanvas.get_child(2)
-	card2.setCardFromPath(playerHand[1])
-	card3 = fightCanvas.get_child(3)
-	card4 = fightCanvas.get_child(4)
