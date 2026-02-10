@@ -38,7 +38,5 @@ offset_bottom = -5.0
 theme = ExtResource("2_87g6o")
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/normal_font_size = 10
-text = "Please save our Kindom! 
-The Evil Dragon-Lord has raised taxes by over 200% :(
-Hit him with Left Mouse-Button
+text = "If you need new cards, you can buy them here
 "

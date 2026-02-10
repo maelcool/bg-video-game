@@ -1,8 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://dji1rmr7vkdwx"]
+[gd_scene load_steps=13 format=4 uid="uid://dji1rmr7vkdwx"]
 
 [ext_resource type="PackedScene" uid="uid://dahw36wi5sb6i" path="res://assets/scenes/lava_stone.tscn" id="1_jcq7b"]
 [ext_resource type="PackedScene" uid="uid://2agysw61vf0f" path="res://assets/scenes/door.tscn" id="2_2xvej"]
 [ext_resource type="PackedScene" uid="uid://dg2ltbnb3nodq" path="res://assets/scenes/dragon_lord.tscn" id="3_3hi7o"]
+[ext_resource type="PackedScene" uid="uid://cjn7325o8oevw" path="res://assets/scenes/Player.tscn" id="4_dkiab"]
+
+[sub_resource type="Gradient" id="Gradient_ln2ry"]
+offsets = PackedFloat32Array(0.5586207)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7yili"]
+gradient = SubResource("Gradient_ln2ry")
+
+[sub_resource type="Gradient" id="Gradient_dkiab"]
+offsets = PackedFloat32Array(0, 0.71034485)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ln2ry"]
+gradient = SubResource("Gradient_dkiab")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_7yili"]
+offsets = PackedFloat32Array(0, 0.76551723)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ou58"]
+gradient = SubResource("Gradient_7yili")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_dkiab"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAADWAAAAUklGRs4AAABXRUJQVlA4TMIAAAAvH8AHECegkI0kaP1dVmhNvjsOhWwjQOevcG4H8oZM2qb+DdVKpewa8x8ASEux539wEEmSFC2PgukWQDtgHFD+ZR27nISI/k/AGONSO6LYx+vlrijOseAfJndRXyIqyszxD/vbZUxRHJ/2BSE8u43ilUsvxfF2V74It9uzx5hPMeacxTgLl+IIZaFr7REVY2YVUzjH210RxjlnmIpZEYUyeSqiIvYF46jP/6EuzD6LYupbz4xxm8klCrNwu93VzjHGAA==")
+size_override = Vector2(32, 32)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ln2ry"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAAAIAQAAUklGRgABAABXRUJQVlA4TPMAAAAvH8AHECegkI0kaP1dVmhNvjsOhWwjQOevcG4H8oZM2qb+DdVKpewa8x8ASEux53+A0EaSJKm0PQS6MgFs6Qh0qhfApI4/qn4wRPR/AuacMwtOo35zKxqGUJhzRqBgFg1TETH6Pw3B8K+3CEh0CqIJxehQGkLBqd5Gh7F4F5BRdIpOKGL0PxQ2v94iApVFwTQUETEmTaXo2ZYYNJyGn9i+MAxnfa6o9OELQxQvqDR8R6UuXjrFQj2HVBqFagcWF1+YSl8Mmk7RzyELdy8KgnAaLIo3LwtLHUYWTGe13ZuiKfq5yFraAWbh5ota0p/dC9MwagEA")
+size_override = Vector2(32, 32)
 
 [node name="level_3" type="Node2D"]
 
@@ -42,6 +76,7 @@ position = Vector2(304, 170)
 position = Vector2(304, 170)
 
 [node name="Door" parent="." instance=ExtResource("2_2xvej")]
+visible = false
 position = Vector2(159, 138)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -53,4 +88,326 @@ offset_bottom = 204.0
 color = Color(0.722849, 0.387161, 0.178553, 1)
 
 [node name="DragonLord" parent="." instance=ExtResource("3_3hi7o")]
+z_index = 2
 position = Vector2(257, 139)
+
+[node name="Player" parent="." instance=ExtResource("4_dkiab")]
+position = Vector2(175, 140)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.5
+blend_mode = 1
+
+[node name="Lava" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(288, 186)
+color = Color(0.87759936, 0.38495418, 0, 1)
+texture = SubResource("GradientTexture2D_7yili")
+
+[node name="Lava2" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(224, 186)
+color = Color(0.87759936, 0.38495418, 0, 1)
+texture = SubResource("GradientTexture2D_7yili")
+
+[node name="Lava3" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(160, 186)
+color = Color(0.87759936, 0.38495418, 0, 1)
+texture = SubResource("GradientTexture2D_7yili")
+
+[node name="Lava4" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(96, 186)
+color = Color(0.87759936, 0.38495418, 0, 1)
+texture = SubResource("GradientTexture2D_7yili")
+
+[node name="PointLight2D" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(256, 136)
+color = Color(0.86343604, 5.318448e-06, 7.70092e-07, 1)
+energy = 1.62
+range_z_max = 1
+texture = SubResource("GradientTexture2D_ln2ry")
+texture_scale = 2.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(256, 136)
+color = Color(0.86343604, 5.318448e-06, 7.70092e-07, 1)
+energy = 0.5
+range_z_max = 5
+texture = SubResource("GradientTexture2D_ln2ry")
+texture_scale = 3.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(169, 137)
+color = Color(0.8227523, 0.0011368484, 0.9092848, 1)
+texture = SubResource("GradientTexture2D_1ou58")
+texture_scale = 3.0
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(132, 138)
+texture = SubResource("PortableCompressedTexture2D_dkiab")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaeuleMitte.aseprite",
+"source_uid": 3100548307009493505
+}
+metadata/_aseprite_wizard_source_file_hash_ = "143690cedf5909fe809dccbc7730b765"
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(170, 138)
+texture = SubResource("PortableCompressedTexture2D_dkiab")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaeuleMitte.aseprite",
+"source_uid": 3100548307009493505
+}
+metadata/_aseprite_wizard_source_file_hash_ = "143690cedf5909fe809dccbc7730b765"
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(210, 138)
+texture = SubResource("PortableCompressedTexture2D_dkiab")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaeuleMitte.aseprite",
+"source_uid": 3100548307009493505
+}
+metadata/_aseprite_wizard_source_file_hash_ = "143690cedf5909fe809dccbc7730b765"
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(254, 138)
+texture = SubResource("PortableCompressedTexture2D_dkiab")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaeuleMitte.aseprite",
+"source_uid": 3100548307009493505
+}
+metadata/_aseprite_wizard_source_file_hash_ = "143690cedf5909fe809dccbc7730b765"
+
+[node name="Sprite2D13" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(296, 138)
+texture = SubResource("PortableCompressedTexture2D_dkiab")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaeuleMitte.aseprite",
+"source_uid": 3100548307009493505
+}
+metadata/_aseprite_wizard_source_file_hash_ = "143690cedf5909fe809dccbc7730b765"
+
+[node name="Sprite2D14" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(296, 110)
+texture = SubResource("PortableCompressedTexture2D_ln2ry")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaueleTop.aseprite",
+"source_uid": 1387574006756843261
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f79a7b205049e4530b942e424d73aee0"
+
+[node name="Sprite2D15" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(254, 110)
+texture = SubResource("PortableCompressedTexture2D_ln2ry")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaueleTop.aseprite",
+"source_uid": 1387574006756843261
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f79a7b205049e4530b942e424d73aee0"
+
+[node name="Sprite2D16" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(210, 110)
+texture = SubResource("PortableCompressedTexture2D_ln2ry")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaueleTop.aseprite",
+"source_uid": 1387574006756843261
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f79a7b205049e4530b942e424d73aee0"
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(170, 110)
+texture = SubResource("PortableCompressedTexture2D_ln2ry")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaueleTop.aseprite",
+"source_uid": 1387574006756843261
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f79a7b205049e4530b942e424d73aee0"
+
+[node name="Sprite2D17" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(132, 110)
+texture = SubResource("PortableCompressedTexture2D_ln2ry")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://asprite/SaueleTop.aseprite",
+"source_uid": 1387574006756843261
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f79a7b205049e4530b942e424d73aee0"

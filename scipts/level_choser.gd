@@ -7,6 +7,8 @@ extends Node2D
 
 var grassRoom: Dictionary = {
 	"Goblin": preload("res://rooms/goblin.tres"),
+	"Mystery": preload("res://rooms/mystery.tres"), 
+	"Camp": preload("res://rooms/camp.tres"), 
 	"Chest": preload("res://rooms/chest.tres")
 	 }
 var forestRoom: Dictionary = {

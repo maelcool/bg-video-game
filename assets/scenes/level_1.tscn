@@ -227,6 +227,10 @@ texture = ExtResource("8_ir25h")
 position = Vector2(76, 160)
 texture = ExtResource("8_ir25h")
 
+[node name="CandleShort3" type="Sprite2D" parent="Decorations/Candle"]
+position = Vector2(54, 155)
+texture = ExtResource("8_ir25h")
+
 [node name="Door" parent="." instance=ExtResource("6_m4l0e")]
 position = Vector2(146, 116)
 
