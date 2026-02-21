@@ -1,16 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://dji1rmr7vkdwx"]
+[gd_scene load_steps=11 format=4 uid="uid://dji1rmr7vkdwx"]
 
 [ext_resource type="PackedScene" uid="uid://dahw36wi5sb6i" path="res://assets/scenes/lava_stone.tscn" id="1_jcq7b"]
 [ext_resource type="PackedScene" uid="uid://2agysw61vf0f" path="res://assets/scenes/door.tscn" id="2_2xvej"]
 [ext_resource type="PackedScene" uid="uid://dg2ltbnb3nodq" path="res://assets/scenes/dragon_lord.tscn" id="3_3hi7o"]
 [ext_resource type="PackedScene" uid="uid://cjn7325o8oevw" path="res://assets/scenes/Player.tscn" id="4_dkiab"]
-
-[sub_resource type="Gradient" id="Gradient_ln2ry"]
-offsets = PackedFloat32Array(0.5586207)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7yili"]
-gradient = SubResource("Gradient_ln2ry")
 
 [sub_resource type="Gradient" id="Gradient_dkiab"]
 offsets = PackedFloat32Array(0, 0.71034485)
@@ -97,26 +90,6 @@ position = Vector2(175, 140)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.5
 blend_mode = 1
-
-[node name="Lava" type="PointLight2D" parent="DirectionalLight2D"]
-position = Vector2(288, 186)
-color = Color(0.87759936, 0.38495418, 0, 1)
-texture = SubResource("GradientTexture2D_7yili")
-
-[node name="Lava2" type="PointLight2D" parent="DirectionalLight2D"]
-position = Vector2(224, 186)
-color = Color(0.87759936, 0.38495418, 0, 1)
-texture = SubResource("GradientTexture2D_7yili")
-
-[node name="Lava3" type="PointLight2D" parent="DirectionalLight2D"]
-position = Vector2(160, 186)
-color = Color(0.87759936, 0.38495418, 0, 1)
-texture = SubResource("GradientTexture2D_7yili")
-
-[node name="Lava4" type="PointLight2D" parent="DirectionalLight2D"]
-position = Vector2(96, 186)
-color = Color(0.87759936, 0.38495418, 0, 1)
-texture = SubResource("GradientTexture2D_7yili")
 
 [node name="PointLight2D" type="PointLight2D" parent="DirectionalLight2D"]
 position = Vector2(256, 136)
